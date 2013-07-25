@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Quicksort {
     public static <T extends Comparable<T>> void sort(T[] array) {
         sort(array, 0, array.length - 1);

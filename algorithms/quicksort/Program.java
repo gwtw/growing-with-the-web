@@ -7,9 +7,9 @@ public class Program {
   	}
       
     private static void TestQuicksortFixedPivot() {
-        int[] sorted = { 1, 2, 4, 6, 9, 9 };
+        Integer[] sorted = { 1, 2, 4, 6, 9, 9 };
 
-        int[] array = { 9, 6, 2, 9, 1, 4 };
+        Integer[] array = { 9, 6, 2, 9, 1, 4 };
         Quicksort.sort(array);
 
     	for (int i = 0; i < array.length; i++) {
@@ -18,9 +18,9 @@ public class Program {
     }
       
     private static void TestQuicksortRandomPivot() {
-        int[] sorted = { 1, 2, 4, 6, 9, 9 };
+        Integer[] sorted = { 1, 2, 4, 6, 9, 9 };
 
-        int[] array = { 9, 6, 2, 9, 1, 4 };
+        Integer[] array = { 9, 6, 2, 9, 1, 4 };
         Quicksort.randomSort(array);
 
     	for (int i = 0; i < array.length; i++) {
