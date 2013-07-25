@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Program {
     public static void main(String[] args) {
-        ArrayList<string> combinations = getCombinations("abc");
+        ArrayList<String> combinations = getCombinations("abc");
         
         assert permutations.size() == 7;
         assert permutations.contains("a");
@@ -14,7 +16,7 @@ public class Program {
   	    System.out.println("Tests passed");
     }
     
-    public ArrayList<String> getCombinations(String text) {
+    public static ArrayList<String> getCombinations(String text) {
         ArrayList<String> results = new ArrayList<String>();
         for (int i = 0; i < text.length(); i++) {
             // Record size as we will be adding to the list
