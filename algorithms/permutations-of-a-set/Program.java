@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Program {
     public static void main(String[] args) {
-        ArrayList<string> permutations = getPermutations("abc");
+        ArrayList<String> permutations = getPermutations("abc");
         
         assert permutations.size() == 6;
         assert permutations.contains("abc");
