@@ -1,0 +1,1 @@
+public interface ComponentInterface {    public void operation();}

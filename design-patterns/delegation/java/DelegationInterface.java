@@ -1,0 +1,1 @@
+interface DelegationInterface {    void f();}

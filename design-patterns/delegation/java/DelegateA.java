@@ -1,0 +1,1 @@
+class DelegateA implements DelegationInterface {    public void f() {         System.out.println("Delegate A called");    }}

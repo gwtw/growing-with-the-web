@@ -1,0 +1,1 @@
+public class ConcreteComponent implements ComponentInterface {    public void operation() {        System.out.println("ConcreteComponent called");    }}
