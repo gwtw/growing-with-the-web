@@ -3,7 +3,7 @@ public class BinarySearch {
         return search(sortedArray, value, 0, sortedArray.length - 1);
     }
     
-    public static boolean search(int[] sortedArray, int value, int min, int max) {
+    private static boolean search(int[] sortedArray, int value, int min, int max) {
         if (max < min)
             return false;
         else {
