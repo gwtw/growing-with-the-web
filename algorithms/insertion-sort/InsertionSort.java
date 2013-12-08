@@ -1,5 +1,5 @@
 public class InsertionSort {
-    public static int[] sort(int[] array) {
+    public static void sort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int item = array[i];
             int indexHole = i;
@@ -8,6 +8,5 @@ public class InsertionSort {
             }
             array[indexHole] = item;
         }
-        return array;
     }
 }
