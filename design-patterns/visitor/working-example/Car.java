@@ -1,5 +1,5 @@
 class Car {
-    public void paint(RedPaint paint) {
-        System.out.println("Car painted red");
+    public void paint(Paint paint) {
+        paint.paint(this);
     }
 }

@@ -1,10 +1,10 @@
 public class Program {
     public static void main(String[] args) {
-        RedPaint red = new RedPaint();
         Car car = new Car();
-        Car fastCar = new FastCar();
+        Paint paint = new Paint();
+        RedPaint redpaint = new RedPaint();
 
-        red.paint(car);
-        red.paint(fastCar);
+        car.paint(paint);
+        car.paint(redpaint);
     }
 }
