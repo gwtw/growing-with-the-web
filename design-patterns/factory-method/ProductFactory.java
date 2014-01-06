@@ -1,4 +1,3 @@
-
 public interface ProductFactory {
-	Product makeProduct();
+    Product makeProduct();
 }

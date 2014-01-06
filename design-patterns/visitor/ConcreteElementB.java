@@ -1,0 +1,1 @@
+public class ConcreteElementB implements ElementInterface {    public void accept(VisitorInterface visitor) {        visitor.visit(this);    }}

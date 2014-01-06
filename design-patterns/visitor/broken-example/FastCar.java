@@ -1,0 +1,1 @@
+class FastCar extends Car { }

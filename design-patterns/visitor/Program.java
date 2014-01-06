@@ -7,24 +7,29 @@ public class Program {
         final PrintStream out = System.out;
         ByteArrayOutputStream testOut = useTestStream();
 
-        ComponentInterface component = new ConcreteComponent();
-        component.operation();
+        VisitorInterface visitor1 = new ConcreteVisitor1();
+        VisitorInterface visitor2 = new ConcreteVisitor2();
+        ElementInterface elementA = new ConcreteElementA();
+        ElementInterface elementB = new ConcreteElementB();
 
-        assert testOut.toString().equals("ConcreteComponent called");
+        elementA.accept(visitor1);
+
+        assert testOut.toString().equals("1 visits A");
         testOut = useTestStream();
 
-        // Decorate the component using ConcreteDecoratorA
-        ComponentInterface decoratorA = new ConcreteDecoratorA(component);
-        decoratorA.operation();
+        elementA.accept(visitor2);
 
-        assert testOut.toString().equals("ConcreteDecoratorA called");
+        assert testOut.toString().equals("2 visits A");
         testOut = useTestStream();
 
-        // Decorate the component using ConcreteDecoratorB
-        ComponentInterface decoratorB = new ConcreteDecoratorB(component);
-        decoratorB.operation();
+        elementB.accept(visitor1);
 
-        assert testOut.toString().equals("ConcreteDecoratorB called");
+        assert testOut.toString().equals("1 visits B");
+        testOut = useTestStream();
+
+        elementB.accept(visitor2);
+
+        assert testOut.toString().equals("2 visits B");
 
         System.setOut(out);
         System.out.println("Tests passed");
