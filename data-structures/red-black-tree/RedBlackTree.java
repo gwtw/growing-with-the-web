@@ -192,7 +192,8 @@ public class RedBlackTree {
 		if (node.getRight() != null && !node.isNilNode())
 			return treeMinimum(node.getRight());
 		TreeNode successor = node.getParent();
-		while (successor != null && !successor.isNilNode() && node == successor) {
+		while (successor != null && !successor.isNilNode() && 
+				node == successor) {
 			node = successor;
 			successor = node.getParent();
 		}

@@ -159,7 +159,8 @@ public class BinomialHeap<T extends Comparable<T>> {
 		Node<T> next = newHead.sibling;
 
 		while (next != null) {
-			if (curr.degree != next.degree || (next.sibling != null && next.sibling.degree == curr.degree)) {
+			if (curr.degree != next.degree || (next.sibling != null && 
+					next.sibling.degree == curr.degree)) {
 				prev = curr;
 				curr = next;
 			} else {
@@ -183,7 +184,8 @@ public class BinomialHeap<T extends Comparable<T>> {
 		return newHead;
 	}
 
-	private static <T extends Comparable<T>> Node<T> merge(BinomialHeap<T> heap1, BinomialHeap<T> heap2) {
+	private static <T extends Comparable<T>> Node<T> merge(
+			BinomialHeap<T> heap1, BinomialHeap<T> heap2) {
 		if (heap1.head == null) {
 			return heap2.head;
 		} else if (heap2.head == null) {
@@ -230,7 +232,8 @@ public class BinomialHeap<T extends Comparable<T>> {
 			head.print(0);
 	}
 
-	public static class Node<T extends Comparable<T>> implements Comparable<Node<T>> {
+	public static class Node<T extends Comparable<T>>
+			implements Comparable<Node<T>> {
 		public T key;
 		public int degree;
 		public Node<T> parent;

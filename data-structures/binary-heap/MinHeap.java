@@ -63,16 +63,16 @@ public class MinHeap<T extends Comparable<T>> {
 	}
 
 	private void heapify(int i) {
-	    int left = left(i);
-	    int right = right(i);
-	    int small = i;
-	    if (left < list.size() && list.get(left).compareTo(list.get(i)) < 0)
-	        small = left;
-	    if (right < list.size() && list.get(right).compareTo(list.get(small)) < 0)
-	    	small = right;
-	    if (small != i) {
-	        swap(i, small);
-	        heapify(small);
+	    int l = left(i);
+	    int r = right(i);
+	    int smallest = i;
+	    if (l < list.size() && list.get(l).compareTo(list.get(i)) < 0)
+	        smallest = l;
+	    if (r < list.size() && list.get(r).compareTo(list.get(small)) < 0)
+	    	smallest = r;
+	    if (smallest != i) {
+	        swap(i, smallest);
+	        heapify(smallest);
 	    }
 	}
 

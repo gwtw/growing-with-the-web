@@ -13,14 +13,16 @@ public class SplayTree {
 					rotateLeft(parent);
 				}
 			} else {
-				TreeNode grandparent = parent.getParent();
-				if (parent.getLeft() == node && grandparent.getLeft() == parent) {
-					rotateRight(grandparent);
+				TreeNode gparent = parent.getParent();
+				if (parent.getLeft() == node && gparent.getLeft() == parent) {
+					rotateRight(gparent);
 					rotateRight(node.getParent());
-				} else if (parent.getRight() == node && grandparent.getRight() == parent) {
-					rotateLeft(grandparent);
+				} else if (parent.getRight() == node && 
+						gparent.getRight() == parent) {
+					rotateLeft(gparent);
 					rotateLeft(node.getParent());
-				} else if (parent.getLeft() == node && grandparent.getRight() == parent) {
+				} else if (parent.getLeft() == node && 
+						gparent.getRight() == parent) {
 					rotateRight(parent);
 					rotateLeft(node.getParent());
 				} else {
