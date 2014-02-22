@@ -33,6 +33,9 @@ public class Program {
     }
     
     public static boolean isTextPalindrome(String text) {
+        if (text == null) {
+            return false;
+        }
         int left = 0;
         int right = text.length() - 1;
         while (left < right) {
