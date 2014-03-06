@@ -31,7 +31,7 @@ public class Program {
             head.next = head.prev;
             head.prev = temp;
             if (temp == null)
-                return head;
+                break;
             head = temp;
         }
         return head;
