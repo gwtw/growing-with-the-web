@@ -3,15 +3,23 @@ import java.util.ArrayList;
 public class Program {
     public static void main(String[] args) {
         ArrayList<String> combinations = getCombinations("abc");
-        
-        assert permutations.size() == 7;
-        assert permutations.contains("a");
-        assert permutations.contains("b");
-        assert permutations.contains("c");
-        assert permutations.contains("ab");
-        assert permutations.contains("ac");
-        assert permutations.contains("bc");
-        assert permutations.contains("abc");
+
+        assert combinations.size() == 7;
+        assert combinations.contains("a");
+        assert combinations.contains("b");
+        assert combinations.contains("c");
+        assert combinations.contains("ab") || 
+               combinations.contains("ba");
+        assert combinations.contains("ac") ||
+               combinations.contains("ca");
+        assert combinations.contains("bc") ||
+               combinations.contains("cb");
+        assert combinations.contains("abc") ||
+               combinations.contains("acb") ||
+               combinations.contains("bac") ||
+               combinations.contains("bca") ||
+               combinations.contains("cab") ||
+               combinations.contains("cba");
 
   	    System.out.println("Tests passed");
     }
