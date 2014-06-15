@@ -22,11 +22,10 @@ public class Program {
 	}
 
 	public static <T extends Comparable<T>> Queue<T> naturalMergeSort(Queue<T> input) {
-	    int arrayIndex = 0;
 	    Queue<T> output = new LinkedList<T>();
 	    Queue<T> tempArray1 = new LinkedList<T>();
 	    Queue<T> tempArray2 = new LinkedList<T>();
-	    while (arrayIndex < input.size()) {
+	    while (input.size() > 0) {
 	        while (input.size() > 0) {
 	            while (input.size() > 0) {
 	                naturalMerge(input, output, tempArray1);
