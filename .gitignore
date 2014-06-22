@@ -214,5 +214,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
