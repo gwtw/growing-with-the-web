@@ -1,15 +1,15 @@
 
-public class RedBlackTree {
+public class RedBlackTree<T extends Comparable<T>> {
 	private TreeNode root;
 	
 	public RedBlackTree() { }
 	
-	public void insert(int key) {
+	public void insert(T key) {
 		TreeNode parent = null;
 		TreeNode node = root;
 		while (node != null && !node.isNilNode()) {
 			parent = node;
-			if (key < parent.getKey())
+			if (key.compareTo(parent.getKey()) < 0)
 				node = parent.getLeft();
 			else 
 				node = parent.getRight();

@@ -1,15 +1,15 @@
 
-public class TreeNode {
+public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>> {
 	private final String nullNodeString = "_B";
 	private TreeNode left;
 	private TreeNode right;
 	private TreeNode parent;
   
-	private int key;
+	private T key;
 	private boolean isNilNode;
 	private Color color;
 
-	public TreeNode(int key, TreeNode parent) {
+	public TreeNode(T key, TreeNode parent) {
 		this.key = key;
 		this.parent = parent;
 		this.color = Color.RED;
@@ -23,6 +23,7 @@ public class TreeNode {
 		this.setNilNode(true);
 	}
   
+	@Override
 	public String toString() {
 		if (isNilNode)
 			return nullNodeString;
@@ -45,11 +46,11 @@ public class TreeNode {
 		return right != null;
 	}
   
-	public int getKey() {
+	public T getKey() {
 		return key;
 	}
 
-	public void setKey(int key) {
+	public void setKey(T key) {
 		this.key = key;
 	}
 
@@ -101,8 +102,13 @@ public class TreeNode {
 		return isNilNode;
 	}
 
-	public void setNilNode(boolean isNilNode) {
+	public final void setNilNode(boolean isNilNode) {
 		this.isNilNode = isNilNode;
+	}
+
+	@Override
+	public int compareTo(TreeNode<T> o) {
+		return this.key.compareTo(o.key);
 	}
 
 	public enum Color {
