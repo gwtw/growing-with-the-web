@@ -1,1 +1,1 @@
-interface DelegationInterface {    void f();}
+package designPatterns.delegation.java;interface DelegationInterface {    void f();}

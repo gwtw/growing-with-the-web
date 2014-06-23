@@ -1,3 +1,5 @@
+package algorithms.interviewQuestions.divideWithoutDivide;
+
 public class Program {
 	public static void main(String[] args) {
 		assert divide(10,4) == 2;

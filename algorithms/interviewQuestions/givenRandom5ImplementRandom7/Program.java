@@ -1,3 +1,5 @@
+package algorithms.interviewQuestions.givenRandom5ImplementRandom7;
+
 import java.util.Random;
 
 public class Program {

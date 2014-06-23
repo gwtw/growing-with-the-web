@@ -1,1 +1,1 @@
-public interface ComponentInterface {    public void operation();}
+package designPatterns.decorator;public interface ComponentInterface {    public void operation();}

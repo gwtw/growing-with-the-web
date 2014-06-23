@@ -1,3 +1,5 @@
+package algorithms.sorting;
+
 public class Heapsort {
     public static <T extends Comparable<T>> void sort(T[] array) {
         int heapSize = array.length;

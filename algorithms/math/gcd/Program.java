@@ -1,3 +1,5 @@
+package algorigthms.math.gcd;
+
 public class Program {
     public static void main(String[] args) {
         assert gcd(32, 6) == 2;

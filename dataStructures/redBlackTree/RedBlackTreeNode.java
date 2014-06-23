@@ -1,15 +1,16 @@
+package dataStructures.redBlackTree;
 
-public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>> {
+public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<RedBlackTreeNode<T>> {
 	private final String nullNodeString = "_B";
-	private TreeNode left;
-	private TreeNode right;
-	private TreeNode parent;
+	private RedBlackTreeNode left;
+	private RedBlackTreeNode right;
+	private RedBlackTreeNode parent;
   
 	private T key;
 	private boolean isNilNode;
 	private Color color;
 
-	public TreeNode(T key, TreeNode parent) {
+	public RedBlackTreeNode(T key, RedBlackTreeNode parent) {
 		this.key = key;
 		this.parent = parent;
 		this.color = Color.RED;
@@ -17,7 +18,7 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
 	}
 
 	// Constructor for nil leaf node
-	private TreeNode(TreeNode parent) {
+	private RedBlackTreeNode(RedBlackTreeNode parent) {
 		this.parent = parent;
 		this.color = Color.BLACK;
 		this.setNilNode(true);
@@ -54,39 +55,39 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
 		this.key = key;
 	}
 
-	public TreeNode getLeft() {
+	public RedBlackTreeNode getLeft() {
 		// Create nil leaf nodes lazily
 		if (left == null)
-			left = new TreeNode(this);
+			left = new RedBlackTreeNode(this);
 		return left;
 	}
 
-	public void setLeft(TreeNode left) {
+	public void setLeft(RedBlackTreeNode left) {
 		this.left = left;
 	}
 
-	public TreeNode getRight() {
+	public RedBlackTreeNode getRight() {
 		// Create nil leaf nodes lazily
 		if (right == null)
-			right = new TreeNode(this);
+			right = new RedBlackTreeNode(this);
 		return right;
 	}
 
-	public void setRight(TreeNode right) {
+	public void setRight(RedBlackTreeNode right) {
 		this.right = right;
 	}
 
-	public TreeNode getParent() {
+	public RedBlackTreeNode getParent() {
 		return parent;
 	}
 	
-	public TreeNode getGrandparent() {
+	public RedBlackTreeNode getGrandparent() {
 		if (parent != null && parent.getParent() != null)
 			return parent.getParent();
 		return null;
 	}
 	
-	public void setParent(TreeNode parent) {
+	public void setParent(RedBlackTreeNode parent) {
 		this.parent = parent;
 	}
 	
@@ -107,8 +108,8 @@ public class TreeNode<T extends Comparable<T>> implements Comparable<TreeNode<T>
 	}
 
 	@Override
-	public int compareTo(TreeNode<T> o) {
-		return this.key.compareTo(o.key);
+	public int compareTo(RedBlackTreeNode<T> o) {
+		return this.key.compareTo(o.getKey());
 	}
 
 	public enum Color {

@@ -1,3 +1,5 @@
+package algorithms.interviewQuestions.reverseString;
+
 public class Program {
 	public static void main(String[] args) {
 		assert reverse1("abc123def").equals("fed321cba");

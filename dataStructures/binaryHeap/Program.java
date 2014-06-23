@@ -1,3 +1,5 @@
+package dataStructures.binaryHeap;
+
 public class Program {
 	public static void main(String[] args) {
 		MinHeap<Integer> heap = new MinHeap<Integer>();

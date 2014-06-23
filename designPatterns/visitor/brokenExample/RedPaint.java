@@ -1,1 +1,5 @@
-class RedPaint extends Paint { }
+package designPatterns.visitor.brokenExample;
+
+
+class RedPaint extends Paint { 
+}

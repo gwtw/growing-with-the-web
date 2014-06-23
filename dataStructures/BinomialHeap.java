@@ -1,3 +1,5 @@
+package dataStructures;
+
 import java.lang.Comparable;
 import java.util.ArrayList;
 import java.util.List;

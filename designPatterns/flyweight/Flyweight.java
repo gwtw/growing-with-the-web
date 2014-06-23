@@ -1,3 +1,5 @@
-public interface Flyweight {
-    public void operation(int extrinsicState);
+package designPatterns.flyweight;
+
+public interface Flyweight<S> {
+    public void operation(S extrinsicState);
 }

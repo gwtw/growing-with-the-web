@@ -1,3 +1,5 @@
+package algorithms;
+
 import java.util.Stack;
 
 class StackQueue<T> {

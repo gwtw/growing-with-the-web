@@ -1,3 +1,5 @@
-public class Product {
+package designPatterns.factoryMethod;
+
+public abstract class Product {
     // ...
 }

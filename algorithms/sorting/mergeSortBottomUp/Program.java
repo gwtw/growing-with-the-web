@@ -1,3 +1,5 @@
+package algorithms.sorting.mergeSortBottomUp;
+
 public class Program {
     public static void main(String[] args) {
         int[] sorted = { 1, 2, 4, 6, 9, 9 };

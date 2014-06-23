@@ -1,11 +1,13 @@
-public class ConcreteFlyweight implements Flyweight {
-    private int intrinsicState;
+package designPatterns.flyweight;
 
-    public ConcreteFlyweight(int intrinsicState) {
+public class ConcreteFlyweight implements Flyweight<Integer> {
+    private Integer intrinsicState;
+
+    public ConcreteFlyweight(Integer intrinsicState) {
         this.intrinsicState = intrinsicState;
     }
 
-    public void operation(int extrinsicState) {
+    public void operation(Integer extrinsicState) {
         System.out.print("Intrinsic: " + intrinsicState + ", " +
                          "Extrinsic: " + extrinsicState);
     }

@@ -1,3 +1,5 @@
+package algorithms.sorting;
+
 public class BubbleSort {
     public static void sortFor(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
