@@ -1,3 +1,7 @@
+package dataStructures.fibonacciHeap;
+
+import dataStructures.FibonacciHeap;
+
 public class Program {
     public static void main(String[] args) {
         testMinimum();

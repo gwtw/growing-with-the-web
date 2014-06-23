@@ -1,3 +1,5 @@
+package dataStructures;
+
 import java.lang.Comparable;
 import java.lang.IllegalArgumentException;
 import java.lang.UnsupportedOperationException;

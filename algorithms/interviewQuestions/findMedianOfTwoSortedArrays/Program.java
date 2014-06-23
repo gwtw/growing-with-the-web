@@ -1,4 +1,4 @@
-import java.util.Random;
+package algorithms.interviewQuestions.findMedianOfTwoSortedArrays;
 
 public class Program {
     public static void main(String[] args) {

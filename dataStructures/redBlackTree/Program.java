@@ -1,6 +1,10 @@
+package dataStructures.redBlackTree;
+
+import dataStructures.RedBlackTree;
+
 public class Program {
 	public static void main(String[] args) {
-		RedBlackTree tree = new RedBlackTree();
+		RedBlackTree<Integer> tree = new RedBlackTree<Integer>();
 		tree.insert(8);
 		System.out.println(tree.toString());
 		 tree.insert(7);

@@ -1,3 +1,5 @@
+package designPatterns.facade;
+
 public class Facade {
     private Class1 class1;
     private Class2 class2;

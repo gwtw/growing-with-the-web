@@ -1,1 +1,1 @@
-public interface ElementInterface {    public void accept(VisitorInterface visitor);}
+package designPatterns.visitor;public interface ElementInterface {    public void accept(VisitorInterface visitor);}

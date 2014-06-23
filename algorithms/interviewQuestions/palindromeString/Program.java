@@ -1,3 +1,5 @@
+package algorithms.interviewQuestions.palindromeString;
+
 public class Program {
     public static void main(String[] args) {
         String[] wordPalindromes = {

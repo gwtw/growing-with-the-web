@@ -1,3 +1,5 @@
+package designPatterns.delegation.java;
+
 class Delegator implements DelegationInterface {
     private DelegationInterface delegate;
 

@@ -1,1 +1,1 @@
-public class ConcreteComponent implements ComponentInterface {    public void operation() {        System.out.print("ConcreteComponent called");    }}
+package designPatterns.decorator;public class ConcreteComponent implements ComponentInterface {    public void operation() {        System.out.print("ConcreteComponent called");    }}

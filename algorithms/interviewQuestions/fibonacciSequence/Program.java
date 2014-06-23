@@ -1,3 +1,5 @@
+package algorithms.interviewQuestions.fibonacciSequence;
+
 import java.util.HashMap;
 
 public class Program {

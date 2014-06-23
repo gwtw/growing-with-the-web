@@ -1,11 +1,16 @@
-public class SplayTree {
-	private TreeNode root;
+package dataStructures;
+
+import dataStructures.splayTree.SplayTreeNode;
+
+public class SplayTree<T extends Comparable<T>> {
+
+	private SplayTreeNode<T> root;
 	  
 	public SplayTree() { }
 	 
-	private void splay(TreeNode node) {
+	private void splay(SplayTreeNode<T> node) {
 		while (node.parentExists()) {
-			TreeNode parent = node.getParent();
+			SplayTreeNode parent = node.getParent();
 			if (!parent.parentExists()) {
 				if (parent.getLeft() == node) {
 					rotateRight(parent);
@@ -13,7 +18,7 @@ public class SplayTree {
 					rotateLeft(parent);
 				}
 			} else {
-				TreeNode gparent = parent.getParent();
+				SplayTreeNode gparent = parent.getParent();
 				if (parent.getLeft() == node && gparent.getLeft() == parent) {
 					rotateRight(gparent);
 					rotateRight(node.getParent());
@@ -33,8 +38,8 @@ public class SplayTree {
 		}
 	}
 	
-	private void rotateLeft(TreeNode x) {
-        TreeNode y = x.getRight();
+	private void rotateLeft(SplayTreeNode<T> x) {
+        SplayTreeNode y = x.getRight();
         x.setRight(y.getLeft());
         if (y.getLeft() != null)
             y.getLeft().setParent(x);
@@ -51,8 +56,8 @@ public class SplayTree {
         x.setParent(y);
     }
     
-    private void rotateRight(TreeNode x) {
-        TreeNode y = x.getLeft();
+    private void rotateRight(SplayTreeNode<T> x) {
+        SplayTreeNode y = x.getLeft();
         x.setLeft(y.getRight());
         if (y.getRight() != null)
             y.getRight().setParent(x);
@@ -69,9 +74,9 @@ public class SplayTree {
         x.setParent(y);
     }
 	
-	public void insert(int key) {
+	public void insert(T key) {
 	    if (root == null) {
-	    	root = new TreeNode(key, null);
+	    	root = new SplayTreeNode(key, null);
 	    	return;
 	    }
 	    
@@ -79,23 +84,23 @@ public class SplayTree {
 	    search(key);
 	}
 	  
-	private void insert(int key, TreeNode node) {
-	    if (key < node.getKey()) {
+	private void insert(T key, SplayTreeNode<T> node) {
+	    if (key.compareTo( node.getKey() ) < 0) {
 	    	if (node.leftExists())
 	    		insert(key, node.getLeft());
 	    	else
-	    		node.setLeft(new TreeNode(key, node));
+	    		node.setLeft(new SplayTreeNode(key, node));
 	    }
 	    
-	    if (key > node.getKey()) {
+	    if (key.compareTo(node.getKey())>0) {
 	    	if (node.rightExists())
 	    		insert(key, node.getRight());
 	    	else
-	    		node.setRight(new TreeNode(key, node));
+	    		node.setRight(new SplayTreeNode(key, node));
 	    }
 	}
 	  
-	public void delete(int key) {
+	public void delete(T key) {
 	    if (root == null)
 	    	return;
 	    
@@ -103,8 +108,8 @@ public class SplayTree {
 	    delete(key, root);
 	}
 	  
-	private void delete(int key, TreeNode node) {
-	    if (key < node.getKey()) {
+	private void delete(T key, SplayTreeNode<T> node) {
+	    if (key.compareTo(node.getKey())< 0) {
 	    	if (node.leftExists())
 	    		delete(key, node.getLeft());
 	    	if (node.getLeft().isDeleted())
@@ -112,7 +117,7 @@ public class SplayTree {
 	    	return;
 	    }
 
-	    if (key > node.getKey()) {
+	    if (key.compareTo(node.getKey()) > 0) {
 	    	if (node.rightExists())
 	    		delete(key, node.getRight());
 	    	if (node.getRight().isDeleted())
@@ -123,7 +128,7 @@ public class SplayTree {
 	    delete(node);
 	}
 	  
-	private void delete(TreeNode node) {
+	private void delete(SplayTreeNode<T> node) {
 	    if (!(node.leftExists() || node.rightExists())) {
 	    	node.setDeleted(true);
 	    	return;
@@ -152,42 +157,42 @@ public class SplayTree {
 	    }
 	    
 	    // both exist, replace with minimum from right sub-tree
-	    int min = findMin(node.getRight());
+	    T min = findMin(node.getRight());
 	    node.setKey(min);
 	}
 	  
-	private int findMin(TreeNode node) {
+	private T findMin(SplayTreeNode<T> node) {
 	    if (!node.leftExists()) {
 	    	node.setDeleted(true);
 	    	return node.getKey();
 	    }
 	    
-	    int min = findMin(node.getLeft());
+	    T min = findMin(node.getLeft());
 	    if (node.getLeft().isDeleted())
 	    	node.setLeft(null);
 	    return min;
 	}
 	  
-	public boolean search(int key) {
+	public boolean search(T key) {
 	    if (root == null)
 	    	return false;
 	    
-	    TreeNode node = search(key, root);
+	    SplayTreeNode<T> node = search(key, root);
 	    splay(node);
 	    return node != null;
 	}
 	  
-	private TreeNode search(int key, TreeNode node) {
+	private SplayTreeNode<T> search(T key, SplayTreeNode<T> node) {
 	    if (key == node.getKey())
 	    	return node;
 	    
-	    if (key < node.getKey()) {
+	    if (key.compareTo(node.getKey()) < 0) {
 	    	if (!node.leftExists())
 	        	return null;
 	    	return search(key, node.getLeft());
     	}
 	    
-	    if (key > node.getKey()) {
+	    if (key.compareTo(node.getKey()) > 0) {
 	    	if (!node.rightExists())
 	    		return null;
 	    	return search(key, node.getRight());

@@ -1,49 +1,52 @@
+package dataStructures;
+
+import dataStructures.binarySearchTree.BinarySearchTreeNode;
 import java.util.ArrayList;
 
-public class BinarySearchTree {
-    private TreeNode root;
+public class BinarySearchTree<K extends Comparable<K>> {
+    private BinarySearchTreeNode<K> root;
 
     public BinarySearchTree() { }
 
-    public void insert(int key) {
+    public void insert(K key) {
         if (root == null) {
-            root = new TreeNode(key);
+            root = new BinarySearchTreeNode<K>(key);
             return;
         }
 
         insert(key, root);
     }
 
-    private void insert(int key, TreeNode node) {
+    private void insert(K key, BinarySearchTreeNode<K> node) {
         if (node == null) {
-            node = new TreeNode(key);
+            node = new BinarySearchTreeNode(key);
             return;
         }
 
-        if (key < node.getKey()) {
+        if (key.compareTo(node.getKey()) < 0) {
             if (node.leftExists())
                 insert(key, node.getLeft());
             else
-                node.setLeft(new TreeNode(key));
+                node.setLeft(new BinarySearchTreeNode(key));
         }
 
-        if (key > node.getKey()) {
+        if (key.compareTo(node.getKey()) > 0) {
             if (node.rightExists())
                 insert(key, node.getRight());
             else
-                node.setRight(new TreeNode(key));
+                node.setRight(new BinarySearchTreeNode(key));
         }
     }
 
-    public void delete(int key) {
+    public void delete( K key) {
         if (root == null)
             return;
 
         delete(key, root);
     }
 
-    private void delete(int key, TreeNode node) {
-        if (key < node.getKey()) {
+    private void delete( K key, BinarySearchTreeNode<K> node) {
+        if (key.compareTo(node.getKey()) < 0) {
             if (node.leftExists())
                 delete(key, node.getLeft());
             if (node.getLeft().isDeleted())
@@ -51,7 +54,7 @@ public class BinarySearchTree {
             return;
         }
 
-        if (key > node.getKey()) {
+        if (key.compareTo(node.getKey()) > 0) {
             if (node.rightExists())
                 delete(key, node.getRight());
             if (node.getRight().isDeleted())
@@ -62,7 +65,7 @@ public class BinarySearchTree {
         delete(node);
     }
 
-    private void delete(TreeNode node) {
+    private void delete(BinarySearchTreeNode<K> node) {
         if (!(node.leftExists() || node.rightExists())) {
             node.setDeleted(true);
             return;
@@ -91,40 +94,40 @@ public class BinarySearchTree {
         }
 
         // both exist, replace with minimum from right sub-tree
-        int min = findMin(node.getRight());
+        K min = findMin(node.getRight());
         node.setKey(min);
     }
 
-    private int findMin(TreeNode node) {
+    private K findMin(BinarySearchTreeNode<K> node) {
         if (!node.leftExists()) {
             node.setDeleted(true);
             return node.getKey();
         }
 
-        int min = findMin(node.getLeft());
+        K min = findMin(node.getLeft());
         if (node.getLeft().isDeleted())
             node.setLeft(null);
         return min;
     }
 
-    public boolean search(int key) {
+    public boolean search(K key) {
         if (root == null)
             return false;
 
         return search(key, root);
     }
 
-    private boolean search(int key, TreeNode node) {
+    private boolean search( K key, BinarySearchTreeNode<K> node) {
         if (key == node.getKey())
             return true;
 
-        if (key < node.getKey()) {
+        if (key.compareTo(node.getKey()) < 0) {
             if (!node.leftExists())
                 return false;
             return search(key, node.getLeft());
         }
 
-        if (key > node.getKey()) {
+        if (key.compareTo( node.getKey())> 0 ) {
             if (!node.rightExists())
                 return false;
             return search(key, node.getRight());

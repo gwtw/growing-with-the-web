@@ -1,3 +1,5 @@
+package dataStructures;
+
 import java.util.ArrayList;
 
 public class MinHeap<T extends Comparable<T>> {

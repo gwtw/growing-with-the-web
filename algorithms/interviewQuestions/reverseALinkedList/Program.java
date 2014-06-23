@@ -1,3 +1,7 @@
+package algorithms.interviewQuestions.reverseALinkedList;
+
+import algorithms.LinkedList;
+
 public class Program {
     public static void main(String[] args) {
         LinkedList head = new LinkedList(new int[] {1, 2, 3, 4}, LinkedList.Type.Singly);

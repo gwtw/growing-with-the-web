@@ -1,3 +1,5 @@
+package algorithms.interviewQuestions.twoStackQueue;
+
 public class Program {
 	public static void main(String[] args) {
 		StackQueue<Integer> queue = new StackQueue<Integer>();

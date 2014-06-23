@@ -1,1 +1,1 @@
-public class ConcreteElementB implements ElementInterface {    public void accept(VisitorInterface visitor) {        visitor.visit(this);    }}
+package designPatterns.visitor;public class ConcreteElementB implements ElementInterface {	@Override    public void accept(VisitorInterface visitor) {        visitor.visit(this);    }}

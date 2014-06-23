@@ -1,3 +1,5 @@
+package algorithms.sorting;
+
 public class CountingSort {
     public static void sort(int[] array, int maxValue) {
         int[] buckets = new int[maxValue + 1];

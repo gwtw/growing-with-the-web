@@ -1,17 +1,20 @@
-public class TreeNode {
+package dataStructures.splayTree;
+
+public class SplayTreeNode<T extends Comparable<T>> {
 	private final String nullNodeString = "_";
-	private TreeNode left;
-	private TreeNode right;
-	private TreeNode parent;
+	private SplayTreeNode<T> left;
+	private SplayTreeNode<T> right;
+	private SplayTreeNode<T> parent;
 	  
-	private int key;
+	private T key;
 	private boolean isDeleted = false;
 	
-	public TreeNode(int key, TreeNode parent) {
+	public SplayTreeNode(T key, SplayTreeNode<T> parent) {
 	    this.key = key;
 	    this.parent = parent;
 	}
 	  
+	@Override
 	public String toString() {
 		return key + " : { " +
 				(leftExists() ? left.toString() : nullNodeString) + " , " +
@@ -30,27 +33,27 @@ public class TreeNode {
 		return parent != null;
 	}
 	  
-	public int getKey() {
+	public T getKey() {
 	    return key;
 	}
 	
-	public void setKey(int key) {
+	public void setKey(T key) {
 	    this.key = key;
 	}
 	
-	public TreeNode getLeft() {
+	public SplayTreeNode<T> getLeft() {
 	    return left;
 	}
 	
-	public void setLeft(TreeNode left) {
+	public void setLeft(SplayTreeNode<T> left) {
 	    this.left = left;
 	}
 	
-	public TreeNode getRight() {
+	public SplayTreeNode<T> getRight() {
 	    return right;
 	}
 	
-	public void setRight(TreeNode right) {
+	public void setRight(SplayTreeNode<T> right) {
 	    this.right = right;
 	}
 	
@@ -62,11 +65,11 @@ public class TreeNode {
 	    this.isDeleted = isDeleted;
 	}
 
-	public TreeNode getParent() {
+	public SplayTreeNode<T> getParent() {
 		return parent;
 	}
 	
-	public void setParent(TreeNode parent) {
+	public void setParent(SplayTreeNode<T> parent) {
 		this.parent = parent;
 	}
 }

@@ -1,3 +1,5 @@
+package dataStructures.binomialHeap;
+
 public class Program {
     public static void main(String[] args) {
         testMinimum();

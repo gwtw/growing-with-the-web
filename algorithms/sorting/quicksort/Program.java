@@ -1,3 +1,5 @@
+package algorithms.sorting.quicksort;
+
 public class Program {
     public static void main(String[] args) {
         TestQuicksortFixedPivot();

@@ -1,6 +1,10 @@
+package dataStructures.splayTree;
+
+import dataStructures.SplayTree;
+
 public class Program {
 	public static void main(String[] args) {
-		SplayTree splayTree = new SplayTree();
+		SplayTree<Integer> splayTree = new SplayTree<Integer>();
 
 		splayTree.insert(1);
 		splayTree.insert(2);
