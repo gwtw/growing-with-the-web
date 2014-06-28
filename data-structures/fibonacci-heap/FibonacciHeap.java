@@ -185,11 +185,10 @@ public class FibonacciHeap<T extends Comparable<T>> {
         size += other.size;
     }
 
-    // Merged two lists and returns the minimum node
+    // Merges two lists and returns the minimum node
     public static <T extends Comparable<T>> Node<T> mergeLists(
             Node<T> a, Node<T> b) {
 
-        // Assume a and b a
         if (a == null && b == null)
             return null;
         if (a == null)
