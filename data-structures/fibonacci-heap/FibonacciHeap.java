@@ -12,13 +12,13 @@ public class FibonacciHeap<T extends Comparable<T>> {
     private int size;
 
     public FibonacciHeap() {
-        size = 0;
         minNode = null;
+        size = 0;
     }
 
     private FibonacciHeap(Node<T> node) {
-        size = 1;
         minNode = node;
+        size = 1;
     }
 
     private FibonacciHeap(Node<T> minNode, int size) {
@@ -32,6 +32,7 @@ public class FibonacciHeap<T extends Comparable<T>> {
 
     public void clear() {
         minNode = null;
+        size = 0;
     }
 
     public Node<T> insert(T key) {
@@ -46,9 +47,9 @@ public class FibonacciHeap<T extends Comparable<T>> {
     }
 
     public void decreaseKey(Node<T> node, T newKey) {
-        if (newKey.compareTo(node.key) > 0) 
+        if (newKey.compareTo(node.key) > 0)
             throw new IllegalArgumentException("New key is larger than old key.");
-        
+
         node.key = newKey;
         Node<T> parent = node.parent;
         if (parent != null && node.compareTo(parent) < 0) {
@@ -89,7 +90,7 @@ public class FibonacciHeap<T extends Comparable<T>> {
             cascadingCut(parent);
         }
         minNode = node;
-        
+
         extractMin();
     }
 
@@ -113,7 +114,7 @@ public class FibonacciHeap<T extends Comparable<T>> {
 
             // Merge the children of the minimum node with the root list
             minNode = mergeLists(nextInRootList, extractedMin.child);
-            
+
             if (nextInRootList != null) {
                 minNode = nextInRootList;
                 consolidate();
@@ -204,7 +205,7 @@ public class FibonacciHeap<T extends Comparable<T>> {
 
         return a.compareTo(b) < 0 ? a : b;
     }
-    
+
     public void print() {
         System.out.println("Fibonacci heap:");
         if (minNode != null)
