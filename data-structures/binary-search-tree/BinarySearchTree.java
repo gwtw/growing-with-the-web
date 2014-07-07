@@ -82,9 +82,9 @@ public class BinarySearchTree {
         if (node.rightExists() && !node.leftExists()) {
             node.setKey(node.getRight().getKey());
             if (node.getRight().leftExists())
-                node.setLeft(node.getLeft().getLeft());
+                node.setLeft(node.getRight().getLeft());
             if (node.getRight().rightExists())
-                node.setRight(node.getLeft().getRight());
+                node.setRight(node.getRight().getRight());
             else
                 node.setRight(null);
             return;
