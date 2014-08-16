@@ -1,6 +1,5 @@
 package com.growingwiththeweb.dataStructures;
 
-import dataStructures.binarySearchTree.BinarySearchTreeNode;
 import java.util.ArrayList;
 
 public class BinarySearchTree<K extends Comparable<K>> {

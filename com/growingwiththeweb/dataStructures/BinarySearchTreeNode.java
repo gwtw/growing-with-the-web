@@ -1,4 +1,4 @@
-package com.growingwiththeweb.dataStructures.binarySearchTree;
+package com.growingwiththeweb.dataStructures;
 
 public class BinarySearchTreeNode<K extends Comparable<K>> implements Comparable<BinarySearchTreeNode<K>> {
     private final String nullNodeString = "_";
@@ -14,7 +14,7 @@ public class BinarySearchTreeNode<K extends Comparable<K>> implements Comparable
 
 	@Override
     public String toString() {
-        return key + " : " + ((leftExists() || rightExists()) ? ("{ " + 
+        return key + " : " + ((leftExists() || rightExists()) ? ("{ " +
                 (leftExists() ? left.toString() : nullNodeString) + " , " +
                 (rightExists() ? right.toString() : nullNodeString) + " }") : "<leaf>");
     }

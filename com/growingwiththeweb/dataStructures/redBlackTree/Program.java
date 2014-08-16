@@ -1,7 +1,5 @@
 package com.growingwiththeweb.dataStructures.redBlackTree;
 
-import dataStructures.RedBlackTree;
-
 public class Program {
 	public static void main(String[] args) {
 		RedBlackTree<Integer> tree = new RedBlackTree<Integer>();
@@ -49,7 +47,7 @@ public class Program {
 		System.out.println(tree.toString());
 		tree.insert(55);
 		System.out.println(tree.toString());
-		
+
 		tree.delete(60);
 		System.out.println(tree.toString());
 	}

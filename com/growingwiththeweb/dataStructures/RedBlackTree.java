@@ -1,21 +1,24 @@
 package com.growingwiththeweb.dataStructures;
 
-import dataStructures.redBlackTree.*;
-
 public class RedBlackTree<T extends Comparable<T>> {
 	private RedBlackTreeNode root;
-	
+
 	public RedBlackTree() { }
-	
-	public void insert( T key) {
+
+	public boolean insert(T key) {
 		RedBlackTreeNode<T> parent = null;
 		RedBlackTreeNode<T> node = root;
 		while (node != null && !node.isNilNode()) {
 			parent = node;
-			if (key.compareTo(parent.getKey()) < 0)
+			int compare = key.compareTo(parent.getKey());
+			if (compare == 0) {
+				return false;
+			}
+			if (compare < 0) {
 				node = parent.getLeft();
-			else 
+			} else {
 				node = parent.getRight();
+			}
 		}
 		if (parent == null) {
 			node = new RedBlackTreeNode(key, null);
@@ -28,13 +31,14 @@ public class RedBlackTree<T extends Comparable<T>> {
 		}
 		node.setColor(RedBlackTreeNode.Color.RED);
 		insertFixup(node);
+		return true;
 	}
-	
+
 	private void insertFixup(RedBlackTreeNode<T> node) {
-		while (node.getParent() != null && 
-			   node.getGrandparent() != null && 
+		while (node.getParent() != null &&
+			   node.getGrandparent() != null &&
 			   node.getParent().getColor() == RedBlackTreeNode.Color.RED) {
-			
+
 			if (node.getParent() == node.getGrandparent().getLeft()) {
 				RedBlackTreeNode<T> uncle = node.getGrandparent().getRight();
 				if (uncle.getColor() == RedBlackTreeNode.Color.RED) {
@@ -71,7 +75,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 		}
 		root.setColor(RedBlackTreeNode.Color.BLACK);
 	}
-	
+
 	private void rotateLeft(RedBlackTreeNode<T> x) {
 		RedBlackTreeNode<T> y = x.getRight();
 		x.setRight(y.getLeft());
@@ -89,7 +93,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 		y.setLeft(x);
 		x.setParent(y);
 	}
-	
+
 	private void rotateRight(RedBlackTreeNode<T> x) {
 		RedBlackTreeNode<T> y = x.getLeft();
 		x.setLeft(y.getRight());
@@ -107,11 +111,11 @@ public class RedBlackTree<T extends Comparable<T>> {
 		y.setRight(x);
 		x.setParent(y);
 	}
-	
+
 	public void delete(T key) {
 		RedBlackTreeNode<T> node = search(key);
 		RedBlackTreeNode<T> y, x;
-		if (node.getLeft().isNilNode() || node.getRight().isNilNode()) 
+		if (node.getLeft().isNilNode() || node.getRight().isNilNode())
 			y = node;
 		else
 			y = treeSuccessor(node);
@@ -133,7 +137,7 @@ public class RedBlackTree<T extends Comparable<T>> {
 		if (y.getColor() == RedBlackTreeNode.Color.BLACK)
 			deleteFixup(x);
 	}
-	
+
 	private void deleteFixup(RedBlackTreeNode<T> node) {
 		while (node != root && node.getColor() == RedBlackTreeNode.Color.BLACK) {
 			if (node == node.getParent().getLeft()) {
@@ -143,9 +147,9 @@ public class RedBlackTree<T extends Comparable<T>> {
 					node.getParent().setColor(RedBlackTreeNode.Color.RED);
 					rotateLeft(node.getParent());
 				}
-				if (w.getLeft().getColor() == RedBlackTreeNode.Color.BLACK && 
+				if (w.getLeft().getColor() == RedBlackTreeNode.Color.BLACK &&
 					w.getRight().getColor() == RedBlackTreeNode.Color.BLACK) {
-					
+
 					w.setColor(RedBlackTreeNode.Color.RED);
 					node = node.getParent();
 				} else  {
@@ -168,9 +172,9 @@ public class RedBlackTree<T extends Comparable<T>> {
 					node.getParent().setColor(RedBlackTreeNode.Color.RED);
 					rotateRight(node.getParent());
 				}
-				if (w.getRight().getColor() == RedBlackTreeNode.Color.BLACK && 
+				if (w.getRight().getColor() == RedBlackTreeNode.Color.BLACK &&
 					w.getLeft().getColor() == RedBlackTreeNode.Color.BLACK) {
-					
+
 					w.setColor(RedBlackTreeNode.Color.RED);
 					node = node.getParent();
 				} else  {
@@ -190,51 +194,51 @@ public class RedBlackTree<T extends Comparable<T>> {
 		}
 		node.setColor(RedBlackTreeNode.Color.BLACK);
 	}
-	
+
 	private RedBlackTreeNode<T> treeSuccessor(RedBlackTreeNode<T> node) {
 		if (node.getRight() != null && !node.isNilNode())
 			return treeMinimum(node.getRight());
 		RedBlackTreeNode<T> successor = node.getParent();
-		while (successor != null && !successor.isNilNode() && 
+		while (successor != null && !successor.isNilNode() &&
 				node == successor) {
 			node = successor;
 			successor = node.getParent();
 		}
 		return successor;
 	}
-	
+
 	private RedBlackTreeNode<T> treeMinimum(RedBlackTreeNode<T> node) {
 		while (!node.getLeft().isNilNode() && !node.isNilNode())
 			node = node.getLeft();
 		return node;
 	}
-	
+
 	public RedBlackTreeNode<T> search(T key) {
 	    if (root == null)
 	    	return null;
-	    
+
 	    return search(key, root);
   	}
-	  
+
 	public RedBlackTreeNode<T> search( T key, RedBlackTreeNode<T> node) {
 	    if (key == node.getKey())
 	    	return node;
-	    
+
 	    if (key.compareTo( node.getKey() ) < 0) {
 	    	if (!node.leftExists())
 	    		return null;
 	    	return search(key, node.getLeft());
 	    }
-	    
+
 	    if (key.compareTo( node.getKey() ) >= 0) {
 	    	if (!node.rightExists())
 	    		return null;
 	    	return search(key, node.getRight());
 	    }
-	    
+
 	    return null;
 	}
-	
+
 	public String toString() {
 		if (root == null)
 			return "(empty)";

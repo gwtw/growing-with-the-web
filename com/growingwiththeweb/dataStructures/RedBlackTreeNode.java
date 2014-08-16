@@ -1,11 +1,11 @@
-package com.growingwiththeweb.dataStructures.redBlackTree;
+package com.growingwiththeweb.dataStructures;
 
 public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<RedBlackTreeNode<T>> {
 	private final String nullNodeString = "_B";
 	private RedBlackTreeNode left;
 	private RedBlackTreeNode right;
 	private RedBlackTreeNode parent;
-  
+
 	private T key;
 	private boolean isNilNode;
 	private Color color;
@@ -23,30 +23,30 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
 		this.color = Color.BLACK;
 		this.setNilNode(true);
 	}
-  
+
 	@Override
 	public String toString() {
 		if (isNilNode)
 			return nullNodeString;
-		return key + getColorCode() + " : { " + 
+		return key + getColorCode() + " : { " +
 				(leftExists() ? left.toString() : nullNodeString) + " , " +
 				(rightExists() ? right.toString() : nullNodeString) + " }";
 	}
-	
+
 	private String getColorCode() {
 		if (color == Color.BLACK)
 			return "B";
 		return "R";
 	}
-  
+
 	public boolean leftExists() {
 		return left != null;
 	}
-  
+
 	public boolean rightExists() {
 		return right != null;
 	}
-  
+
 	public T getKey() {
 		return key;
 	}
@@ -80,17 +80,17 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
 	public RedBlackTreeNode getParent() {
 		return parent;
 	}
-	
+
 	public RedBlackTreeNode getGrandparent() {
 		if (parent != null && parent.getParent() != null)
 			return parent.getParent();
 		return null;
 	}
-	
+
 	public void setParent(RedBlackTreeNode parent) {
 		this.parent = parent;
 	}
-	
+
 	public Color getColor() {
 		return color;
 	}
