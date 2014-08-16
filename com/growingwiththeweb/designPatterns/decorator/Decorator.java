@@ -1,0 +1,1 @@
+package com.growingwiththeweb.designPatterns.decorator;public abstract class Decorator implements ComponentInterface {    private ComponentInterface component;     public Decorator(ComponentInterface component) {        this.component = component;    }     protected ComponentInterface getComponent() {        return component;    }}

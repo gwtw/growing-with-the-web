@@ -1,0 +1,1 @@
+package com.growingwiththeweb.designPatterns.delegation.java;interface DelegationInterface {    void f();}

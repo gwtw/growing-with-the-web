@@ -1,0 +1,1 @@
+package com.growingwiththeweb.designPatterns.delegation.java;class DelegateB implements DelegationInterface {    public void f() {        System.out.print("Delegate B called");    }}

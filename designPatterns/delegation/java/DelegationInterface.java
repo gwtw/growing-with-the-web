@@ -1,1 +1,0 @@
-package designPatterns.delegation.java;interface DelegationInterface {    void f();}
