@@ -1,6 +1,7 @@
 package com.growingwiththeweb.dataStructures;
 
 public class BinarySearchTree<K extends Comparable<K>> {
+  
     private BinarySearchTreeNode<K> root;
 
     public BinarySearchTree() { }
@@ -21,41 +22,48 @@ public class BinarySearchTree<K extends Comparable<K>> {
         }
 
         if (key.compareTo(node.getKey()) < 0) {
-            if (node.leftExists())
+            if (node.leftExists()) {
                 insert(key, node.getLeft());
-            else
+            } else {
                 node.setLeft(new BinarySearchTreeNode(key));
+            }
         }
 
         if (key.compareTo(node.getKey()) > 0) {
-            if (node.rightExists())
+            if (node.rightExists()) {
                 insert(key, node.getRight());
-            else
+            } else {
                 node.setRight(new BinarySearchTreeNode(key));
+            }
         }
     }
 
     public void delete( K key) {
-        if (root == null)
+        if (root == null) {
             return;
+        }
 
         delete(key, root);
     }
 
     private void delete( K key, BinarySearchTreeNode<K> node) {
         if (key.compareTo(node.getKey()) < 0) {
-            if (node.leftExists())
+            if (node.leftExists()) {
                 delete(key, node.getLeft());
-            if (node.getLeft().isDeleted())
+            }
+            if (node.getLeft().isDeleted()) {
                 node.setLeft(null);
+            }
             return;
         }
 
         if (key.compareTo(node.getKey()) > 0) {
-            if (node.rightExists())
+            if (node.rightExists()) {
                 delete(key, node.getRight());
-            if (node.getRight().isDeleted())
+            }
+            if (node.getRight().isDeleted()) {
                 node.setRight(null);
+            }
             return;
         }
 
@@ -70,23 +78,27 @@ public class BinarySearchTree<K extends Comparable<K>> {
 
         if (node.leftExists() && !node.rightExists()) {
             node.setKey(node.getLeft().getKey());
-            if (node.getLeft().rightExists())
+            if (node.getLeft().rightExists()) {
                 node.setRight(node.getLeft().getRight());
-            if (node.getLeft().leftExists())
+            }
+            if (node.getLeft().leftExists()) {
                 node.setLeft(node.getLeft().getLeft());
-            else
+            } else {
                 node.setLeft(null);
+            }
             return;
         }
 
         if (node.rightExists() && !node.leftExists()) {
             node.setKey(node.getRight().getKey());
-            if (node.getRight().leftExists())
+            if (node.getRight().leftExists()) {
                 node.setLeft(node.getRight().getLeft());
-            if (node.getRight().rightExists())
+            }
+            if (node.getRight().rightExists()) {
                 node.setRight(node.getRight().getRight());
-            else
+            } else {
                 node.setRight(null);
+            }
             return;
         }
 
@@ -102,31 +114,36 @@ public class BinarySearchTree<K extends Comparable<K>> {
         }
 
         K min = findMin(node.getLeft());
-        if (node.getLeft().isDeleted())
+        if (node.getLeft().isDeleted()) {
             node.setLeft(null);
+        }
         return min;
     }
 
     public boolean search(K key) {
-        if (root == null)
+        if (root == null) {
             return false;
+        }
 
         return search(key, root);
     }
 
     private boolean search( K key, BinarySearchTreeNode<K> node) {
-        if (key == node.getKey())
+        if (key == node.getKey()) {
             return true;
+        }
 
         if (key.compareTo(node.getKey()) < 0) {
-            if (!node.leftExists())
+            if (!node.leftExists()) {
                 return false;
+            }
             return search(key, node.getLeft());
         }
 
         if (key.compareTo( node.getKey())> 0 ) {
-            if (!node.rightExists())
+            if (!node.rightExists()) {
                 return false;
+            }
             return search(key, node.getRight());
         }
 
@@ -136,4 +153,5 @@ public class BinarySearchTree<K extends Comparable<K>> {
     public String toString() {
         return root.toString();
     }
+
 }

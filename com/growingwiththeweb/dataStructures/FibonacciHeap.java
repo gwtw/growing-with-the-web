@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class FibonacciHeap<T extends Comparable<T>> {
+
     private Node<T> minNode;
     private int size;
 
@@ -49,8 +50,9 @@ public class FibonacciHeap<T extends Comparable<T>> {
     }
 
     public void decreaseKey(Node<T> node, T newKey) {
-        if (newKey.compareTo(node.key) > 0)
+        if (newKey.compareTo(node.key) > 0) {
             throw new IllegalArgumentException("New key is larger than old key.");
+        }
 
         node.key = newKey;
         Node<T> parent = node.parent;
@@ -58,8 +60,9 @@ public class FibonacciHeap<T extends Comparable<T>> {
             cut(node, parent);
             cascadingCut(parent);
         }
-        if (node.compareTo(minNode) < 0)
+        if (node.compareTo(minNode) < 0) {
             minNode = node;
+        }
     }
 
     private void cut(Node<T> node, Node<T> parent) {
@@ -191,12 +194,15 @@ public class FibonacciHeap<T extends Comparable<T>> {
     public static <T extends Comparable<T>> Node<T> mergeLists(
             Node<T> a, Node<T> b) {
 
-        if (a == null && b == null)
+        if (a == null && b == null) {
             return null;
-        if (a == null)
+        }
+        if (a == null) {
             return b;
-        if (b == null)
+        }
+        if (b == null) {
             return a;
+        }
 
         Node<T> temp = a.next;
         a.next = b.next;
@@ -209,8 +215,9 @@ public class FibonacciHeap<T extends Comparable<T>> {
 
     public void print() {
         System.out.println("Fibonacci heap:");
-        if (minNode != null)
+        if (minNode != null) {
             minNode.print(0);
+        }
     }
 
     public static class Node<T extends Comparable<T>>
@@ -269,8 +276,9 @@ public class FibonacciHeap<T extends Comparable<T>> {
         private Queue<Node<T>> items = new LinkedList<Node<T>>();
 
         public NodeListIterator(Node<T> start) {
-            if (start == null)
+            if (start == null) {
                 return;
+            }
 
             Node<T> current = start;
             do {
@@ -292,4 +300,5 @@ public class FibonacciHeap<T extends Comparable<T>> {
                     "NodeListIterator.remove is not implemented");
         }
     }
+    
 }

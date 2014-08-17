@@ -1,6 +1,7 @@
 package com.growingwiththeweb.dataStructures;
 
 public class BinarySearchTreeNode<K extends Comparable<K>> implements Comparable<BinarySearchTreeNode<K>> {
+
     private final String nullNodeString = "_";
     private BinarySearchTreeNode<K> left;
     private BinarySearchTreeNode<K> right;
@@ -12,7 +13,7 @@ public class BinarySearchTreeNode<K extends Comparable<K>> implements Comparable
         this.key = key;
     }
 
-	@Override
+    @Override
     public String toString() {
         return key + " : " + ((leftExists() || rightExists()) ? ("{ " +
                 (leftExists() ? left.toString() : nullNodeString) + " , " +
@@ -59,8 +60,9 @@ public class BinarySearchTreeNode<K extends Comparable<K>> implements Comparable
         this.isDeleted = isDeleted;
     }
 
-	@Override
-	public int compareTo(BinarySearchTreeNode<K> o) {
-		return key.compareTo(o.key);
-	}
+    @Override
+    public int compareTo(BinarySearchTreeNode<K> o) {
+        return key.compareTo(o.key);
+    }
+    
 }

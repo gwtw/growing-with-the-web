@@ -1,75 +1,77 @@
 package com.growingwiththeweb.dataStructures;
 
 public class SplayTreeNode<T extends Comparable<T>> {
-	private final String nullNodeString = "_";
-	private SplayTreeNode<T> left;
-	private SplayTreeNode<T> right;
-	private SplayTreeNode<T> parent;
 
-	private T key;
-	private boolean isDeleted = false;
+    private final String nullNodeString = "_";
+    private SplayTreeNode<T> left;
+    private SplayTreeNode<T> right;
+    private SplayTreeNode<T> parent;
 
-	public SplayTreeNode(T key, SplayTreeNode<T> parent) {
-	    this.key = key;
-	    this.parent = parent;
-	}
+    private T key;
+    private boolean isDeleted = false;
 
-	@Override
-	public String toString() {
-		return key + " : { " +
-				(leftExists() ? left.toString() : nullNodeString) + " , " +
-				(rightExists() ? right.toString() : nullNodeString) + " }";
-	}
+    public SplayTreeNode(T key, SplayTreeNode<T> parent) {
+        this.key = key;
+        this.parent = parent;
+    }
 
-	public boolean leftExists() {
-		return left != null;
-	}
+    @Override
+    public String toString() {
+        return key + " : { " +
+                (leftExists() ? left.toString() : nullNodeString) + " , " +
+                (rightExists() ? right.toString() : nullNodeString) + " }";
+    }
 
-	public boolean rightExists() {
-		return right != null;
-	}
+    public boolean leftExists() {
+        return left != null;
+    }
 
-	public boolean parentExists() {
-		return parent != null;
-	}
+    public boolean rightExists() {
+        return right != null;
+    }
 
-	public T getKey() {
-	    return key;
-	}
+    public boolean parentExists() {
+        return parent != null;
+    }
 
-	public void setKey(T key) {
-	    this.key = key;
-	}
+    public T getKey() {
+        return key;
+    }
 
-	public SplayTreeNode<T> getLeft() {
-	    return left;
-	}
+    public void setKey(T key) {
+        this.key = key;
+    }
 
-	public void setLeft(SplayTreeNode<T> left) {
-	    this.left = left;
-	}
+    public SplayTreeNode<T> getLeft() {
+        return left;
+    }
 
-	public SplayTreeNode<T> getRight() {
-	    return right;
-	}
+    public void setLeft(SplayTreeNode<T> left) {
+        this.left = left;
+    }
 
-	public void setRight(SplayTreeNode<T> right) {
-	    this.right = right;
-	}
+    public SplayTreeNode<T> getRight() {
+        return right;
+    }
 
-	public boolean isDeleted() {
-	    return isDeleted;
-	}
+    public void setRight(SplayTreeNode<T> right) {
+        this.right = right;
+    }
 
-	public void setDeleted(boolean isDeleted) {
-	    this.isDeleted = isDeleted;
-	}
+    public boolean isDeleted() {
+        return isDeleted;
+    }
 
-	public SplayTreeNode<T> getParent() {
-		return parent;
-	}
+    public void setDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
 
-	public void setParent(SplayTreeNode<T> parent) {
-		this.parent = parent;
-	}
+    public SplayTreeNode<T> getParent() {
+        return parent;
+    }
+
+    public void setParent(SplayTreeNode<T> parent) {
+        this.parent = parent;
+    }
+
 }

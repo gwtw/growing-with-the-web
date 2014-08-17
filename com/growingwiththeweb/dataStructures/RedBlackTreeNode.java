@@ -1,119 +1,126 @@
 package com.growingwiththeweb.dataStructures;
 
 public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<RedBlackTreeNode<T>> {
-	private final String nullNodeString = "_B";
-	private RedBlackTreeNode left;
-	private RedBlackTreeNode right;
-	private RedBlackTreeNode parent;
 
-	private T key;
-	private boolean isNilNode;
-	private Color color;
+    private final String nullNodeString = "_B";
+    private RedBlackTreeNode left;
+    private RedBlackTreeNode right;
+    private RedBlackTreeNode parent;
 
-	public RedBlackTreeNode(T key, RedBlackTreeNode parent) {
-		this.key = key;
-		this.parent = parent;
-		this.color = Color.RED;
-		this.setNilNode(false);
-	}
+    private T key;
+    private boolean isNilNode;
+    private Color color;
 
-	// Constructor for nil leaf node
-	private RedBlackTreeNode(RedBlackTreeNode parent) {
-		this.parent = parent;
-		this.color = Color.BLACK;
-		this.setNilNode(true);
-	}
+    public RedBlackTreeNode(T key, RedBlackTreeNode parent) {
+        this.key = key;
+        this.parent = parent;
+        this.color = Color.RED;
+        this.setNilNode(false);
+    }
 
-	@Override
-	public String toString() {
-		if (isNilNode)
-			return nullNodeString;
-		return key + getColorCode() + " : { " +
-				(leftExists() ? left.toString() : nullNodeString) + " , " +
-				(rightExists() ? right.toString() : nullNodeString) + " }";
-	}
+    // Constructor for nil leaf node
+    private RedBlackTreeNode(RedBlackTreeNode parent) {
+        this.parent = parent;
+        this.color = Color.BLACK;
+        this.setNilNode(true);
+    }
 
-	private String getColorCode() {
-		if (color == Color.BLACK)
-			return "B";
-		return "R";
-	}
+    @Override
+    public String toString() {
+        if (isNilNode) {
+            return nullNodeString;
+        }
+        return key + getColorCode() + " : { " +
+                (leftExists() ? left.toString() : nullNodeString) + " , " +
+                (rightExists() ? right.toString() : nullNodeString) + " }";
+    }
 
-	public boolean leftExists() {
-		return left != null;
-	}
+    private String getColorCode() {
+        if (color == Color.BLACK) {
+            return "B";
+        }
+        return "R";
+    }
 
-	public boolean rightExists() {
-		return right != null;
-	}
+    public boolean leftExists() {
+        return left != null;
+    }
 
-	public T getKey() {
-		return key;
-	}
+    public boolean rightExists() {
+        return right != null;
+    }
 
-	public void setKey(T key) {
-		this.key = key;
-	}
+    public T getKey() {
+        return key;
+    }
 
-	public RedBlackTreeNode getLeft() {
-		// Create nil leaf nodes lazily
-		if (left == null)
-			left = new RedBlackTreeNode(this);
-		return left;
-	}
+    public void setKey(T key) {
+        this.key = key;
+    }
 
-	public void setLeft(RedBlackTreeNode left) {
-		this.left = left;
-	}
+    public RedBlackTreeNode getLeft() {
+        // Create nil leaf nodes lazily
+        if (left == null) {
+            left = new RedBlackTreeNode(this);
+        }
+        return left;
+    }
 
-	public RedBlackTreeNode getRight() {
-		// Create nil leaf nodes lazily
-		if (right == null)
-			right = new RedBlackTreeNode(this);
-		return right;
-	}
+    public void setLeft(RedBlackTreeNode left) {
+        this.left = left;
+    }
 
-	public void setRight(RedBlackTreeNode right) {
-		this.right = right;
-	}
+    public RedBlackTreeNode getRight() {
+        // Create nil leaf nodes lazily
+        if (right == null) {
+            right = new RedBlackTreeNode(this);
+        }
+        return right;
+    }
 
-	public RedBlackTreeNode getParent() {
-		return parent;
-	}
+    public void setRight(RedBlackTreeNode right) {
+        this.right = right;
+    }
 
-	public RedBlackTreeNode getGrandparent() {
-		if (parent != null && parent.getParent() != null)
-			return parent.getParent();
-		return null;
-	}
+    public RedBlackTreeNode getParent() {
+        return parent;
+    }
 
-	public void setParent(RedBlackTreeNode parent) {
-		this.parent = parent;
-	}
+    public RedBlackTreeNode getGrandparent() {
+        if (parent != null && parent.getParent() != null) {
+            return parent.getParent();
+        }
+        return null;
+    }
 
-	public Color getColor() {
-		return color;
-	}
+    public void setParent(RedBlackTreeNode parent) {
+        this.parent = parent;
+    }
 
-	public void setColor(Color color) {
-		this.color = color;
-	}
+    public Color getColor() {
+        return color;
+    }
 
-	public boolean isNilNode() {
-		return isNilNode;
-	}
+    public void setColor(Color color) {
+        this.color = color;
+    }
 
-	public final void setNilNode(boolean isNilNode) {
-		this.isNilNode = isNilNode;
-	}
+    public boolean isNilNode() {
+        return isNilNode;
+    }
 
-	@Override
-	public int compareTo(RedBlackTreeNode<T> o) {
-		return this.key.compareTo(o.getKey());
-	}
+    public final void setNilNode(boolean isNilNode) {
+        this.isNilNode = isNilNode;
+    }
 
-	public enum Color {
-		BLACK,
-		RED
-	}
+    @Override
+    public int compareTo(RedBlackTreeNode<T> o) {
+        return this.key.compareTo(o.getKey());
+    }
+
+    public enum Color {
+        BLACK,
+        RED
+    }
+
 }

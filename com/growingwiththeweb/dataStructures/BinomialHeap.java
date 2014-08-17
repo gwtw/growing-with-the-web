@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinomialHeap<T extends Comparable<T>> {
+
     private Node<T> head;
 
     public BinomialHeap() {
@@ -37,8 +38,9 @@ public class BinomialHeap<T extends Comparable<T>> {
             Node<T> next = min.sibling;
 
             while (next != null) {
-                if (next.compareTo(min) < 0)
+                if (next.compareTo(min) < 0) {
                     min = next;
+                }
                 next = next.sibling;
             }
 
@@ -56,10 +58,12 @@ public class BinomialHeap<T extends Comparable<T>> {
             if (curr.key == key) {
                 return curr;
             }
-            if (curr.sibling != null)
+            if (curr.sibling != null) {
                 nodes.add(curr.sibling);
-            if (curr.child != null)
+            }
+            if (curr.child != null) {
                 nodes.add(curr.child);
+            }
         }
         return null;
     }
@@ -75,8 +79,9 @@ public class BinomialHeap<T extends Comparable<T>> {
             removeTreeRoot(node, null);
         } else {
             Node<T> prev = head;
-            while (prev.sibling.compareTo(node) != 0)
+            while (prev.sibling.compareTo(node) != 0) {
                 prev = prev.sibling;
+            }
             removeTreeRoot(node, prev);
         }
     }
@@ -94,8 +99,9 @@ public class BinomialHeap<T extends Comparable<T>> {
     }
 
     public T extractMin() {
-        if (head == null)
+        if (head == null) {
             return null;
+        }
 
         Node<T> min = head;
         Node<T> minPrev = null;
@@ -117,10 +123,11 @@ public class BinomialHeap<T extends Comparable<T>> {
 
     private void removeTreeRoot(Node<T> root, Node<T> prev) {
         // Remove root from the heap
-        if (root == head)
+        if (root == head) {
             head = root.sibling;
-        else
+        } else {
             prev.sibling = root.sibling;
+        }
 
         // Reverse the order of root's children and make a new heap
         Node<T> newHead = null;
@@ -153,15 +160,16 @@ public class BinomialHeap<T extends Comparable<T>> {
         head = null;
         heap.head = null;
 
-        if (newHead == null)
+        if (newHead == null) {
             return null;
+        }
 
         Node<T> prev = null;
         Node<T> curr = newHead;
         Node<T> next = newHead.sibling;
 
         while (next != null) {
-            if (curr.degree != next.degree || (next.sibling != null && 
+            if (curr.degree != next.degree || (next.sibling != null &&
                     next.sibling.degree == curr.degree)) {
                 prev = curr;
                 curr = next;
@@ -170,10 +178,11 @@ public class BinomialHeap<T extends Comparable<T>> {
                     curr.sibling = next.sibling;
                     linkTree(curr, next);
                 } else {
-                    if (prev == null)
+                    if (prev == null) {
                         newHead = next;
-                    else
+                    } else {
                         prev.sibling = next;
+                    }
 
                     linkTree(next, curr);
                     curr = next;
@@ -219,10 +228,11 @@ public class BinomialHeap<T extends Comparable<T>> {
                 tail = tail.sibling;
             }
 
-            if (heap1Next != null)
+            if (heap1Next != null) {
                 tail.sibling = heap1Next;
-            else
+            } else {
                 tail.sibling = heap2Next;
+            }
 
             return head;
         }
@@ -230,8 +240,9 @@ public class BinomialHeap<T extends Comparable<T>> {
 
     public void print() {
         System.out.println("Binomial heap:");
-        if (head != null)
+        if (head != null) {
             head.print(0);
+        }
     }
 
     public static class Node<T extends Comparable<T>>
@@ -270,4 +281,5 @@ public class BinomialHeap<T extends Comparable<T>> {
             }
         }
     }
+
 }
