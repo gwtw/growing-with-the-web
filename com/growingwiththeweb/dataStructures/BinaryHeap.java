@@ -2,22 +2,22 @@ package com.growingwiththeweb.dataStructures;
 
 import java.util.ArrayList;
 
-public class MinHeap<T extends Comparable<T>> {
+public class BinaryHeap<T extends Comparable<T>> {
 	private ArrayList<T> list;
 
-	public MinHeap() {
+	public BinaryHeap() {
 		this(0);
 	}
-	
-	public MinHeap(int size) {
+
+	public BinaryHeap(int size) {
 		list = new ArrayList<T>(size);
 	}
-	
-	public MinHeap(ArrayList<T> items) {
+
+	public BinaryHeap(ArrayList<T> items) {
 		list = items;
 		buildHeap();
 	}
-	
+
 	public void insert(T item) {
 		int i = list.size();
 		list.add(item);
@@ -28,7 +28,7 @@ public class MinHeap<T extends Comparable<T>> {
 			parent = parent(i);
 		}
 	}
-	
+
 	public T extractMin() {
 		if (list.size() == 0)
 			return null;
@@ -40,25 +40,25 @@ public class MinHeap<T extends Comparable<T>> {
 		heapify(0);
 		return min;
 	}
-	
+
 	public T min() {
 		return list.get(0);
 	}
-	
+
 	public boolean isEmpty() {
 		return list.size() == 0;
 	}
-	
+
 	public int size() {
 		return list.size();
 	}
-	
+
 	public void print() {
 		for (int i = 0; i < list.size(); i++)
 			System.out.print(list.get(i) + ", ");
 		System.out.println();
 	}
-	
+
 	private void buildHeap() {
 	    for (int i = (int)(list.size() / 2); i >= 0; i--)
 	    	heapify(i);
@@ -83,15 +83,15 @@ public class MinHeap<T extends Comparable<T>> {
 	    list.set(i1, list.get(i2));
 	    list.set(i2, temp);
 	}
-	
+
 	private int parent(int i) {
 		return i / 2;
 	}
-	
+
 	private int left(int i) {
 		return 2 * i;
 	}
-	
+
 	private int right(int i) {
 		return 2 * i + 1;
 	}

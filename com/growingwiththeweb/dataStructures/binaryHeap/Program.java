@@ -2,7 +2,7 @@ package com.growingwiththeweb.dataStructures.binaryHeap;
 
 public class Program {
 	public static void main(String[] args) {
-		MinHeap<Integer> heap = new MinHeap<Integer>();
+		BinaryHeap<Integer> heap = new BinaryHeap<Integer>();
 		heap.insert(4);
 		heap.insert(1);
 		heap.insert(8);
@@ -18,7 +18,7 @@ public class Program {
 			assert heap.extractMin() == i;
 		}
 		assert heap.isEmpty();
-		
+
 		System.out.println("Tests passed");
 	}
 }
