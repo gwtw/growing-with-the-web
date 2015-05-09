@@ -2,4 +2,4 @@
 
 [Link to article](http://www.growingwiththeweb.com/2012/12/design-pattern-factory-method-pattern.html)
 
-![UML Diagram](https://googledrive.com/host/0B-wUQaw640vCMjBRbXE4a2ZuQnM)
+![UML Diagram](http://www.growingwiththeweb.com/images/2012/12/01/factory-method-uml.svg)
