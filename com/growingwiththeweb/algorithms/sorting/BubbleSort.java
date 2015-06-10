@@ -13,7 +13,7 @@ public class BubbleSort {
 
     public static void sortWhile(int[] array) {
         int unsortedBelow = array.length;
-        do {
+        while (unsortedBelow != 0) {
             int lastSwap = 0;
             for (int i = 1; i < unsortedBelow; i++) {
                 if (array[i - 1] > array[i]) {
@@ -22,7 +22,7 @@ public class BubbleSort {
                 }
             }
             unsortedBelow = lastSwap;
-        } while (unsortedBelow != 0);
+        }
     }
 
     private static void swap(int[] array, int a, int b) {
