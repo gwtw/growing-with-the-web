@@ -11,5 +11,5 @@ else
 fi
 
 java -cp $CLASSPATH org.junit.runner.JUnitCore \
-  com.growingwiththeweb.dataStructures.BinaryHeapTest \
-  com.growingwiththeweb.dataStructures.RedBlackTreeTest
+  com.growingwiththeweb.datastructures.BinaryHeapTest \
+  com.growingwiththeweb.datastructures.RedBlackTreeTest

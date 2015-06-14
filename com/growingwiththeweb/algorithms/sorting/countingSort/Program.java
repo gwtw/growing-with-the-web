@@ -1,4 +1,4 @@
-package com.growingwiththeweb.algorithms.sorting.countingSort;
+package com.growingwiththeweb.algorithms.sorting.countingsort;
 
 public class Program {
     public static void main(String[] args) {

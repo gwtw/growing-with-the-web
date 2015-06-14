@@ -1,1 +1,0 @@
-package com.growingwiththeweb.designPatterns.visitor;public class ConcreteElementA implements ElementInterface {	@Override    public void accept(VisitorInterface visitor) {        visitor.visit(this);    }}

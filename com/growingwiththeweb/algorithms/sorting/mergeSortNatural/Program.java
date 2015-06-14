@@ -1,4 +1,4 @@
-package com.growingwiththeweb.algorithms.sorting.mergeSortNatural;
+package com.growingwiththeweb.algorithms.sorting.mergesortnatural;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package com.growingwiththeweb.algorithms.sorting.selectionSort;
+package com.growingwiththeweb.algorithms.sorting.selectionsort;
 
 import algorithms.sorting.SelectionSort;
 

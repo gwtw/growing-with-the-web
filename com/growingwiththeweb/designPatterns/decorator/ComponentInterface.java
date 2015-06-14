@@ -1,1 +1,0 @@
-package com.growingwiththeweb.designPatterns.decorator;public interface ComponentInterface {    public void operation();}

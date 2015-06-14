@@ -1,4 +1,4 @@
-package com.growingwiththeweb.algorithms.sorting.insertionSort;
+package com.growingwiththeweb.algorithms.sorting.insertionsort;
 
 public class Program {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.growingwiththeweb.algorithms.sorting.mergeSortBottomUp;
+package com.growingwiththeweb.algorithms.sorting.mergesortbottomup;
 
 public class Program {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.growingwiththeweb.algorithms.sorting.bubbleSort;
+package com.growingwiththeweb.algorithms.sorting.bubblesort;
 
 public class Program {
     public static void main(String[] args) {

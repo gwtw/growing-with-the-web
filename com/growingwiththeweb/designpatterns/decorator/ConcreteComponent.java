@@ -1,0 +1,1 @@
+package com.growingwiththeweb.designpatterns.decorator;public class ConcreteComponent implements ComponentInterface {    public void operation() {        System.out.print("ConcreteComponent called");    }}
