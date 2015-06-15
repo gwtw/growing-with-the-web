@@ -1,9 +1,9 @@
 package com.growingwiththeweb.datastructures;
 
+import java.lang.Comparable;
 import java.util.ArrayList;
 
-public class BinaryHeap<T extends Comparable<T>> {
-
+public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
     private ArrayList<T> list;
 
     public BinaryHeap() {
