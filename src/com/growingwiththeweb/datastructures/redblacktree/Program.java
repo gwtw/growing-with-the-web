@@ -1,5 +1,7 @@
 package com.growingwiththeweb.datastructures.redblacktree;
 
+import com.growingwiththeweb.datastructures.RedBlackTree;
+
 public class Program {
 	public static void main(String[] args) {
 		RedBlackTree<Integer> tree = new RedBlackTree<Integer>();

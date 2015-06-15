@@ -1,5 +1,7 @@
 package com.growingwiththeweb.datastructures.splaytree;
 
+import com.growingwiththeweb.datastructures.SplayTree;
+
 public class Program {
 	public static void main(String[] args) {
 		SplayTree<Integer> splayTree = new SplayTree<Integer>();

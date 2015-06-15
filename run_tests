@@ -12,4 +12,6 @@ fi
 
 java -cp $CLASSPATH org.junit.runner.JUnitCore \
   com.growingwiththeweb.datastructures.BinaryHeapTest \
-  com.growingwiththeweb.datastructures.RedBlackTreeTest
+  com.growingwiththeweb.datastructures.RedBlackTreeTest \
+  com.growingwiththeweb.designpatterns.singleton.LazyLoadingSingletonTest \
+  com.growingwiththeweb.designpatterns.singleton.SingletonTest

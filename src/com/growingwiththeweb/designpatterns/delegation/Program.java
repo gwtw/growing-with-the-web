@@ -3,7 +3,6 @@ package com.growingwiththeweb.designpatterns.delegation;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.designPatterns.delegation.*;
 
 public class Program {
     public static void main(String[] args) throws IOException {

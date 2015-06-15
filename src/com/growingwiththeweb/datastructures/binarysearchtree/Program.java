@@ -1,5 +1,7 @@
 package com.growingwiththeweb.datastructures.binarysearchtree;
 
+import com.growingwiththeweb.datastructures.BinarySearchTree;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

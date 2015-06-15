@@ -1,5 +1,7 @@
 package com.growingwiththeweb.datastructures.binomialheap;
 
+import com.growingwiththeweb.datastructures.BinomialHeap;
+
 public class Program {
     public static void main(String[] args) {
         testMinimum();

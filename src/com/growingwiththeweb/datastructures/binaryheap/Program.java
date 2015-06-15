@@ -1,5 +1,7 @@
 package com.growingwiththeweb.datastructures.binaryheap;
 
+import com.growingwiththeweb.datastructures.BinaryHeap;
+
 public class Program {
 	public static void main(String[] args) {
 		BinaryHeap<Integer> heap = new BinaryHeap<Integer>();

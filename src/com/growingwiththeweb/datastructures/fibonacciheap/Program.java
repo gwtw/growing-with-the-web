@@ -1,5 +1,7 @@
 package com.growingwiththeweb.datastructures.fibonacciheap;
 
+import com.growingwiththeweb.datastructures.FibonacciHeap;
+
 public class Program {
     public static void main(String[] args) {
         testMinimum();

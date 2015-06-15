@@ -1,6 +1,4 @@
-package com.growingwiththeweb.designpatterns.singleton.java;
-
-import designPatterns.singleton.java.*;
+package com.growingwiththeweb.designpatterns.singleton;
 
 public class Program {
     public static void main(String[] args) {
