@@ -10,7 +10,7 @@ import org.junit.runners.JUnit4;
 
 public class SingletonTest {
     @Test
-    public void testLazyLoadingSingleton() {
+    public void testSingleton() {
         Singleton a = Singleton.getInstance();
         Singleton b = Singleton.getInstance();
         assertTrue(a != null);
