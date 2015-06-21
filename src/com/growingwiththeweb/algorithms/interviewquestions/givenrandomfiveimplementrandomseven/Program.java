@@ -11,8 +11,7 @@ public class Program {
     }
 
     public static int random7() {
-        // If 1-21, return the result modulo 7 (12% chance for 1-7), otherwise call
-        // recursively (16% chance)
+        // Get 0, 5, 10, 15 or 20 then add 1-5 (4% chance for 1-25)
         int val = (random5() - 1) * 5 + random5();
         // If 1-21, return the result modulo 7 (12% chance for 1-7), otherwise call
         // recursively (16% chance)
