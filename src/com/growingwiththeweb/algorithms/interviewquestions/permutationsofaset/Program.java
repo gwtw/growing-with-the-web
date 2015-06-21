@@ -14,7 +14,7 @@ public class Program {
         assert permutations.contains("cab");
         assert permutations.contains("cba");
 
-		System.out.println("Tests passed");
+        System.out.println("Tests passed");
     }
 
     public static ArrayList<String> getPermutations(String text) {

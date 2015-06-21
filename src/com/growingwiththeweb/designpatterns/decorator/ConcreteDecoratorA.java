@@ -5,7 +5,7 @@ public class ConcreteDecoratorA extends Decorator {
         super(component);
     }
 
-	@Override
+    @Override
     public void operation() {
         System.out.print("ConcreteDecoratorA called");
     }

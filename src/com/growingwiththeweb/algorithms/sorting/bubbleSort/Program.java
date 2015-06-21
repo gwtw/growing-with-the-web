@@ -16,6 +16,6 @@ public class Program {
             assert array2[i] == sorted[i];
         }
 
-        System.out.println("Tests passed");
-      }
+         System.out.println("Tests passed");
+    }
 }

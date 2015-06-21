@@ -23,7 +23,7 @@ public class Program {
                combinations.contains("cab") ||
                combinations.contains("cba");
 
-  	    System.out.println("Tests passed");
+        System.out.println("Tests passed");
     }
 
     public static ArrayList<String> getCombinations(String text) {

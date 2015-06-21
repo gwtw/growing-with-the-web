@@ -11,5 +11,5 @@ public class Program {
         }
 
         System.out.println("Tests passed");
-      }
+    }
 }

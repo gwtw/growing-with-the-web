@@ -3,14 +3,14 @@ package com.growingwiththeweb.datastructures.splaytree;
 import com.growingwiththeweb.datastructures.SplayTree;
 
 public class Program {
-	public static void main(String[] args) {
-		SplayTree<Integer> splayTree = new SplayTree<Integer>();
+    public static void main(String[] args) {
+        SplayTree<Integer> splayTree = new SplayTree<Integer>();
 
-		splayTree.insert(1);
-		splayTree.insert(2);
-		splayTree.insert(3);
-		splayTree.insert(4);
-		splayTree.insert(5);
-		splayTree.toString();
-	}
+        splayTree.insert(1);
+        splayTree.insert(2);
+        splayTree.insert(3);
+        splayTree.insert(4);
+        splayTree.insert(5);
+        splayTree.toString();
+    }
 }

@@ -1,7 +1,7 @@
 package com.growingwiththeweb.designpatterns.visitor.brokenexample;
 
 class Car {
-	public void paint(Paint paint) {
+    public void paint(Paint paint) {
         System.out.println("Car painted");
     }
 

@@ -59,14 +59,14 @@ public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
     public void print() {
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + ", ");
-				}
+        }
         System.out.println();
     }
 
     private void buildHeap() {
         for (int i = (int)(list.size() / 2); i >= 0; i--) {
             heapify(i);
-				}
+        }
     }
 
     private void heapify(int i) {
@@ -78,7 +78,7 @@ public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
         }
         if (r < list.size() && list.get(r).compareTo(list.get(smallest)) < 0) {
             smallest = r;
-				}
+        }
         if (smallest != i) {
             swap(i, smallest);
             heapify(smallest);

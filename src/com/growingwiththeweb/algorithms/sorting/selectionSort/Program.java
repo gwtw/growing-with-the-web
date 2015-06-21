@@ -9,10 +9,10 @@ public class Program {
         int[] array = { 9, 6, 2, 9, 1, 4 };
         SelectionSort.sort(array);
 
-    	for (int i = 0; i < array.length; i++) {
-			assert array[i] == sorted[i];
-		}
+        for (int i = 0; i < array.length; i++) {
+            assert array[i] == sorted[i];
+        }
 
-		System.out.println("Tests passed");
-  	}
+        System.out.println("Tests passed");
+    }
 }
