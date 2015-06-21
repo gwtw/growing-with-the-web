@@ -29,7 +29,7 @@ public class Program {
     public static ArrayList<String> getCombinations(String text) {
         ArrayList<String> results = new ArrayList<String>();
         for (int i = 0; i < text.length(); i++) {
-            // Record size as we will be adding to the list
+            // Record size as the list will change
             int resultsLength = results.size();
             for (int j = 0; j < resultsLength; j++) {
                 results.add(text.charAt(i) + results.get(j));
