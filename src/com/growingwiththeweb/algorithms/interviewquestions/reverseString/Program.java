@@ -2,17 +2,17 @@ package com.growingwiththeweb.algorithms.interviewquestions.reversestring;
 
 public class Program {
     public static void main(String[] args) {
-        assert reverse1("abc123def").equals("fed321cba");
-        assert reverse2("abc123def").equals("fed321cba");
-        assert reverse3("abc123def").equals("fed321cba");
-        assert reverse1("abcd1234").equals("4321dcba");
-        assert reverse2("abcd1234").equals("4321dcba");
-        assert reverse3("abcd1234").equals("4321dcba");
+        assert reverseViaCharArray("abc123def").equals("fed321cba");
+        assert reverseViaStringBuilderA("abc123def").equals("fed321cba");
+        assert reverseViaStringBuilderB("abc123def").equals("fed321cba");
+        assert reverseViaCharArray("abcd1234").equals("4321dcba");
+        assert reverseViaStringBuilderA("abcd1234").equals("4321dcba");
+        assert reverseViaStringBuilderB("abcd1234").equals("4321dcba");
 
         System.out.println("Tests passed");
     }
 
-    public static String reverse1(String text) {
+    public static String reverseViaCharArray(String text) {
         char[] charArray = text.toCharArray();
         int start = -1;
         int end = charArray.length;
@@ -24,7 +24,7 @@ public class Program {
         return String.valueOf(charArray);
     }
 
-    public static String reverse2(String text) {
+    public static String reverseViaStringBuilderA(String text) {
         StringBuilder sb = new StringBuilder();
         for (int i = text.length() - 1; i >= 0; i--) {
             sb.append(text.charAt(i));
@@ -32,7 +32,7 @@ public class Program {
         return sb.toString();
     }
 
-    public static String reverse3(String text) {
+    public static String reverseViaStringBuilderB(String text) {
         return new StringBuilder(text).reverse().toString();
     }
 }
