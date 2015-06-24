@@ -10,7 +10,7 @@ public class BinarySearchTreeNode<K extends Comparable<K>> implements Comparable
     private boolean isDeleted = false;
 
     /**
-     * Create a new {@link BinarySearchTreeNode}.
+     * Creates a new {@link BinarySearchTreeNode}.
      *
      * @param key The key of the new node.
      */
