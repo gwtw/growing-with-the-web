@@ -1,12 +1,33 @@
 package com.growingwiththeweb.datastructures;
 
+/**
+ * Generic implementation of a binary search tree node.
+ */
 public class BinarySearchTreeNode<K extends Comparable<K>> implements Comparable<BinarySearchTreeNode<K>> {
 
+    /**
+     * The string to represent a deleted node in {@link toString}.
+     */
     private final String nullNodeString = "_";
+
+    /**
+     * The left child node.
+     */
     private BinarySearchTreeNode<K> left;
+
+    /**
+     * The right child node.
+     */
     private BinarySearchTreeNode<K> right;
 
+    /**
+     * The key.
+     */
     private K key;
+
+    /**
+     * Whether the node is deleted.
+     */
     private boolean isDeleted = false;
 
     /**

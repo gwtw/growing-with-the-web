@@ -1,7 +1,13 @@
 package com.growingwiththeweb.datastructures;
 
+/**
+ * Generic implementation of a binary search tree.
+ */
 public class BinarySearchTree<K extends Comparable<K>> {
 
+    /**
+     * The root node of the binary search tree.
+     */
     private BinarySearchTreeNode<K> root;
 
     /**
