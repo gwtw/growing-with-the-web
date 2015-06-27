@@ -4,7 +4,7 @@ rm -Rf bin
 ./make
 
 CLASSPATH=""
-if [ "$1" = "win" ]; then
+if [ $OSTYPE == "msys" ]; then
   CLASSPATH="bin;lib/junit-4.11.jar;lib/hamcrest-core-1.3.jar"
 else
   CLASSPATH="bin:lib/junit-4.11.jar:lib/hamcrest-core-1.3.jar"
