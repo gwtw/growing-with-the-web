@@ -6,18 +6,18 @@ import java.util.List;
 public class BucketSort {
     private static final int DEFAULT_BUCKET_SIZE = 5;
 
-    public static void sort(int[] array) {
+    public static void sort(Integer[] array) {
         sort(array, DEFAULT_BUCKET_SIZE);
     }
 
-    public static void sort(int[] array, int bucketSize) {
+    public static void sort(Integer[] array, int bucketSize) {
         if (array.length == 0) {
             return;
         }
 
         // Determine minimum and maximum values
-        int minValue = array[0];
-        int maxValue = array[0];
+        Integer minValue = array[0];
+        Integer maxValue = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] < minValue) {
                 minValue = array[i];
