@@ -1,6 +1,6 @@
 package com.growingwiththeweb.algorithms.interviewquestions.reversealinkedlist;
 
-import algorithms.LinkedList;
+import com.growingwiththeweb.algorithms.LinkedList;
 
 public class Program {
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package com.growingwiththeweb.algorithms.interviewquestions.twostackqueue;
 
+import java.util.Stack;
+
 public class StackQueue<T> {
     Stack<T> s1 = new Stack<T>();
     Stack<T> s2 = new Stack<T>();

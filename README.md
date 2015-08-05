@@ -1,26 +1,33 @@
 [![Growing with the Web](http://www.growingwiththeweb.com/images/site/logo.png)][1]
 
-A collection of algorithm, data structure and design pattern samples of posts from my [blog]().
+[![Build Status](http://img.shields.io/travis/Tyriar/growing-with-the-web.svg?style=flat)](http://travis-ci.org/Tyriar/growing-with-the-web)
+
+A collection of algorithm, data structure and design pattern samples of posts from my [blog][1].
 
 Note that this code has not been thoroughly tested and as a result should not be used in production code.
 
+*This repository is in the process of being split into separate repositories in https://github.com/GrowingWithTheWeb*
 
 
-## Setup
 
-`java` and `javac` are required, here is how they are installed via `apt-get`:
+## Dependencies
+
+Java (JRE, JDK) and [Gradle](https://gradle.org/) are required to build and test this project.
+
+
+
+## Build
 
 ```bash
-sudo apt-get install default-jre
-sudo apt-get install default-jdk
+gradle build
 ```
 
 
 
-## Testing
+## Test
 
 ```bash
-./test
+gradle test
 ```
 
 

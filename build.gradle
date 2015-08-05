@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile 'junit:junit:[4,)'
+}
+
+sourceSets {
+  main {
+    java {
+      srcDirs = ["src/"]
+    }
+  }
+  test {
+    java {
+      srcDirs = ["test/"]
+    }
+  }
+}
+
+test {
+  testLogging {
+    // Show that tests are run in the command-line output
+    events 'passed'
+  }
+}
