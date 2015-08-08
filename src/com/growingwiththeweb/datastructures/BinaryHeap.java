@@ -45,7 +45,14 @@ public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
     }
 
     public T min() {
+        if (list.size() == 0) {
+            return null;
+        }
         return list.get(0);
+    }
+
+    public void clear() {
+        list.clear();
     }
 
     public boolean isEmpty() {

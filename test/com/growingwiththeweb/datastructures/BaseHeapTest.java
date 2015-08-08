@@ -30,12 +30,12 @@ public abstract class BaseHeapTest {
         heap.insert(3);
         heap.insert(4);
         heap.insert(5);
-        assertEquals(heap.size(), 5);
+        assertEquals(5, heap.size());
     }
 
     @Test
     public void testExtractMinimumWithEmptyHeap() {
-        assertEquals(heap.extractMin(), null);
+        assertEquals(null, heap.extractMin());
     }
 
     @Test
@@ -45,11 +45,11 @@ public abstract class BaseHeapTest {
         heap.insert(4);
         heap.insert(1);
         heap.insert(2);
-        assertSame(heap.extractMin(), 1);
-        assertSame(heap.extractMin(), 2);
-        assertSame(heap.extractMin(), 3);
-        assertSame(heap.extractMin(), 4);
-        assertSame(heap.extractMin(), 5);
+        assertSame(1, heap.extractMin());
+        assertSame(2, heap.extractMin());
+        assertSame(3, heap.extractMin());
+        assertSame(4, heap.extractMin());
+        assertSame(5, heap.extractMin());
     }
 
     @Test
@@ -59,11 +59,11 @@ public abstract class BaseHeapTest {
         heap.insert(3);
         heap.insert(5);
         heap.insert(2);
-        assertSame(heap.extractMin(), 1);
-        assertSame(heap.extractMin(), 2);
-        assertSame(heap.extractMin(), 3);
-        assertSame(heap.extractMin(), 4);
-        assertSame(heap.extractMin(), 5);
+        assertSame(1, heap.extractMin());
+        assertSame(2, heap.extractMin());
+        assertSame(3, heap.extractMin());
+        assertSame(4, heap.extractMin());
+        assertSame(5, heap.extractMin());
     }
 
     @Test
@@ -73,11 +73,16 @@ public abstract class BaseHeapTest {
         heap.insert(3);
         heap.insert(10);
         heap.insert(-4);
-        assertSame(heap.extractMin(), -9);
-        assertSame(heap.extractMin(), -4);
-        assertSame(heap.extractMin(), 3);
-        assertSame(heap.extractMin(), 6);
-        assertSame(heap.extractMin(), 10);
+        assertSame(-9, heap.extractMin());
+        assertSame(-4, heap.extractMin());
+        assertSame(3, heap.extractMin());
+        assertSame(6, heap.extractMin());
+        assertSame(10, heap.extractMin());
+    }
+
+    @Test
+    public void testFindMinimumEmptyHeap() {
+        assertSame(null, heap.min());
     }
 
     @Test
@@ -87,7 +92,7 @@ public abstract class BaseHeapTest {
         heap.insert(1);
         heap.insert(4);
         heap.insert(2);
-        assertSame(heap.min(), 1);
+        assertSame(1, heap.min());
     }
 
     @Test
@@ -97,5 +102,23 @@ public abstract class BaseHeapTest {
         assertFalse(heap.isEmpty());
         heap.extractMin();
         assertTrue(heap.isEmpty());
+    }
+
+    @Test
+    public void testClearSetsHeapSizeToZero() {
+        heap.insert(1);
+        heap.insert(2);
+        heap.insert(3);
+        heap.clear();
+        assertSame(0, heap.size());
+    }
+
+    @Test
+    public void testClearSetsHeapsMinNodeToNull() {
+        heap.insert(1);
+        heap.insert(2);
+        heap.insert(3);
+        heap.clear();
+        assertSame(null, heap.min());
     }
 }
