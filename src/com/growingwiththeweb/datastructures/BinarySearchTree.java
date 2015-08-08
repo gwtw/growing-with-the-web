@@ -3,12 +3,17 @@ package com.growingwiththeweb.datastructures;
 /**
  * Generic implementation of a binary search tree.
  */
-public class BinarySearchTree<K extends Comparable<K>> {
+public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTreeInterface<K> {
 
     /**
      * The root node of the binary search tree.
      */
     private BinarySearchTreeNode<K> root;
+
+    /**
+     * The size of the binary search tree.
+     */
+    private int size;
 
     /**
      * Creates a new {@link BinarySearchTree}.
@@ -23,6 +28,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
     public void insert(K key) {
         if (root == null) {
             root = new BinarySearchTreeNode<K>(key);
+            size++;
             return;
         }
 
@@ -38,6 +44,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
     private void insert(K key, BinarySearchTreeNode<K> node) {
         if (node == null) {
             node = new BinarySearchTreeNode(key);
+            size++;
             return;
         }
 
@@ -46,6 +53,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
                 insert(key, node.getLeft());
             } else {
                 node.setLeft(new BinarySearchTreeNode(key));
+                size++;
             }
         }
 
@@ -54,6 +62,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
                 insert(key, node.getRight());
             } else {
                 node.setRight(new BinarySearchTreeNode(key));
+                size++;
             }
         }
     }
@@ -68,7 +77,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
             return;
         }
 
-        delete(key, root);
+        deleteInternal(key, root);
     }
 
     /**
@@ -78,10 +87,10 @@ public class BinarySearchTree<K extends Comparable<K>> {
      * @param key The key of the node being deleted.
      * @param node The current tree being looked at.
      */
-    private void delete(K key, BinarySearchTreeNode<K> node) {
+    private void deleteInternal(K key, BinarySearchTreeNode<K> node) {
         if (key.compareTo(node.getKey()) < 0) {
             if (node.leftExists()) {
-                delete(key, node.getLeft());
+                deleteInternal(key, node.getLeft());
             }
             if (node.getLeft().isDeleted()) {
                 node.setLeft(null);
@@ -91,7 +100,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
 
         if (key.compareTo(node.getKey()) > 0) {
             if (node.rightExists()) {
-                delete(key, node.getRight());
+                deleteInternal(key, node.getRight());
             }
             if (node.getRight().isDeleted()) {
                 node.setRight(null);
@@ -99,7 +108,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
             return;
         }
 
-        delete(node);
+        deleteInternal(node);
     }
 
     /**
@@ -107,7 +116,8 @@ public class BinarySearchTree<K extends Comparable<K>> {
      *
      * @param node The node to delete.
      */
-    private void delete(BinarySearchTreeNode<K> node) {
+    private void deleteInternal(BinarySearchTreeNode<K> node) {
+        size--;
         // No children exist, mark this node as deleted
         if (!(node.leftExists() || node.rightExists())) {
             node.setDeleted(true);
@@ -149,6 +159,13 @@ public class BinarySearchTree<K extends Comparable<K>> {
     }
 
     /**
+     * @return The size of the binary search tree.
+     */
+    public int size() {
+        return size;
+    }
+
+    /**
      * Recursively finds the {@link BinarySearchTreeNode} with the smallest key.
      *
      * @param node The current tree being looked at.
@@ -173,12 +190,12 @@ public class BinarySearchTree<K extends Comparable<K>> {
      * @param key The key to search for.
      * @return Whether a node with the key exists.
      */
-    public boolean search(K key) {
+    public boolean contains(K key) {
         if (root == null) {
             return false;
         }
 
-        return search(key, root);
+        return contains(key, root);
     }
 
     /**
@@ -189,7 +206,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
      * @param node The current tree being looked at.
      * @return Whether a node with the key exists.
      */
-    private boolean search(K key, BinarySearchTreeNode<K> node) {
+    private boolean contains(K key, BinarySearchTreeNode<K> node) {
         if (key == node.getKey()) {
             return true;
         }
@@ -198,14 +215,14 @@ public class BinarySearchTree<K extends Comparable<K>> {
             if (!node.leftExists()) {
                 return false;
             }
-            return search(key, node.getLeft());
+            return contains(key, node.getLeft());
         }
 
         if (key.compareTo( node.getKey())> 0 ) {
             if (!node.rightExists()) {
                 return false;
             }
-            return search(key, node.getRight());
+            return contains(key, node.getRight());
         }
 
         return false;
