@@ -225,7 +225,7 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
             return contains(key, node.getLeft());
         }
 
-        if (key.compareTo( node.getKey())> 0 ) {
+        if (key.compareTo(node.getKey())> 0 ) {
             if (!node.rightExists()) {
                 return false;
             }

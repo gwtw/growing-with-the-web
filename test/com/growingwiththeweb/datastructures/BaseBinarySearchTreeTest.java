@@ -42,6 +42,26 @@ public abstract class BaseBinarySearchTreeTest {
     }
 
     @Test
+    public void testInsertDuplicateElements() {
+        tree.insert(3);
+        assertEquals(1, tree.size());
+        tree.insert(3);
+        assertEquals(1, tree.size());
+        tree.insert(1);
+        assertEquals(2, tree.size());
+        tree.insert(1);
+        assertEquals(2, tree.size());
+        tree.insert(2);
+        assertEquals(3, tree.size());
+        tree.insert(2);
+        assertEquals(3, tree.size());
+        tree.insert(4);
+        assertEquals(4, tree.size());
+        tree.insert(4);
+        assertEquals(4, tree.size());
+    }
+
+    @Test
     public void testDeleteNonExistantElement() {
         tree.delete(0);
         assertEquals(0, tree.size());
