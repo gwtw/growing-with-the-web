@@ -5,4 +5,5 @@ public interface BinarySearchTreeInterface<K> {
     void delete(K key);
     boolean contains(K key);
     int size();
+    boolean isEmpty();
 }

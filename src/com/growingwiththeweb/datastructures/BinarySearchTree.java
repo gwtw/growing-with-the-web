@@ -92,7 +92,7 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
             if (node.leftExists()) {
                 deleteInternal(key, node.getLeft());
             }
-            if (node.getLeft().isDeleted()) {
+            if (node.leftExists() && node.getLeft().isDeleted()) {
                 node.setLeft(null);
             }
             return;
@@ -102,7 +102,7 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
             if (node.rightExists()) {
                 deleteInternal(key, node.getRight());
             }
-            if (node.getRight().isDeleted()) {
+            if (node.rightExists() && node.getRight().isDeleted()) {
                 node.setRight(null);
             }
             return;
@@ -163,6 +163,13 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
      */
     public int size() {
         return size;
+    }
+
+    /**
+     * @return Whether the tree is empty (size = 0).
+     */
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     /**
