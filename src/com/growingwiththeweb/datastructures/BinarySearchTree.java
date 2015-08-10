@@ -20,11 +20,7 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
      */
     public BinarySearchTree() { }
 
-    /**
-     * Inserts a {@link BinarySearchTreeNode} with a specific key.
-     *
-     * @param key The key of the node being inserted.
-     */
+    /** {@inheritDoc} */
     public void insert(K key) {
         if (root == null) {
             root = new BinarySearchTreeNode<K>(key);
@@ -67,11 +63,7 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
         }
     }
 
-    /**
-     * Deletes a {@link BinarySearchTreeNode} matching a specific key.
-     *
-     * @param key The key of the node being deleted.
-     */
+    /** {@inheritDoc} */
     public void delete(K key) {
         if (root == null) {
             return;
@@ -158,16 +150,12 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
         node.setKey(min);
     }
 
-    /**
-     * @return The size of the binary search tree.
-     */
+    /** {@inheritDoc} */
     public int size() {
         return size;
     }
 
-    /**
-     * @return Whether the tree is empty (size = 0).
-     */
+    /** {@inheritDoc} */
     public boolean isEmpty() {
         return size == 0;
     }
@@ -190,13 +178,7 @@ public class BinarySearchTree<K extends Comparable<K>> implements BinarySearchTr
         return min;
     }
 
-    /**
-     * Determines whether a {@link BinarySearchTreeNode} matching a specific key
-     * exists.
-     *
-     * @param key The key to search for.
-     * @return Whether a node with the key exists.
-     */
+    /** {@inheritDoc} */
     public boolean contains(K key) {
         if (root == null) {
             return false;

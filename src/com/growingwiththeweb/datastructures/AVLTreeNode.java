@@ -112,6 +112,7 @@ public class AVLTreeNode<K extends Comparable<K>> implements Comparable<AVLTreeN
         this.height = height;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int compareTo(AVLTreeNode<K> o) {
         return key.compareTo(o.key);

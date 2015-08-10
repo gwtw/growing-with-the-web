@@ -4,7 +4,6 @@ package com.growingwiththeweb.datastructures;
  * Generic implementation of an AVL tree.
  */
 public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterface<K> {
-
     /**
      * The height of a left or right child node that doesn't exist.
      */
@@ -25,11 +24,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
      */
     public AVLTree() { }
 
-    /**
-     * Inserts a new node with a specific key into the tree.
-     *
-     * @param key The key being inserted.
-     */
+    /** {@inheritDoc} */
     public void insert(K key) {
         root = insert(key, root);
         size++;
@@ -87,16 +82,11 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
         return root;
     }
 
-    /**
-     * Deletes a node with a specific key from the tree.
-     *
-     * @param key The key being deleted.
-     */
+    /** {@inheritDoc} */
     public void delete(K key) {
         root = delete(key, root);
         size--;
     }
-
 
     /**
      * Deletes a node with a specific key from the tree.
@@ -171,12 +161,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
         return root;
     }
 
-    /**
-     * Gets whether a node with a specific key is within the tree.
-     *
-     * @param key The key being searched for.
-     * @return Whether a node with the key exists.
-     */
+    /** {@inheritDoc} */
     public boolean contains(K key) {
         if (root == null) {
             return false;
@@ -256,16 +241,12 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
         return current;
     }
 
-    /**
-     * @return The size of the tree.
-     */
+    /** {@inheritDoc} */
     public int size() {
         return size;
     }
 
-    /**
-     * @return Whether the tree is empty (size = 0).
-     */
+    /** {@inheritDoc} */
     public boolean isEmpty() {
         return size == 0;
     }
