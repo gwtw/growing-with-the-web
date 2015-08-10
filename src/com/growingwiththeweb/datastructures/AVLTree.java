@@ -43,6 +43,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
      * @return The new tree root.
      */
     private AVLTreeNode insert(K key, AVLTreeNode<K> root) {
+        // Perform regular BST insertion
         if (root == null) {
             return new AVLTreeNode(key);
         }
@@ -57,11 +58,11 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
             return root;
         }
 
+        // Update height and rebalance tree
         root.setHeight(Math.max(getNodeLeftHeight(root), getNodeRightHeight(root)) + 1);
+        BalanceState balanceState = getBalanceState(root);
 
-        int balance = getBalance(root);
-
-        if (balance == 2) {
+        if (balanceState == BalanceState.UNBALANCED_LEFT) {
             if (key.compareTo(root.getLeft().getKey()) < 0) {
                 // Left left case
                 root = rightRotate(root);
@@ -72,7 +73,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
             }
         }
 
-        if (balance == -2) {
+        if (balanceState == BalanceState.UNBALANCED_RIGHT) {
             if (key.compareTo(root.getRight().getKey()) > 0) {
                 // Right right case
                 root = leftRotate(root);
@@ -105,6 +106,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
      * @return The new tree root.
      */
     private AVLTreeNode delete(K key, AVLTreeNode<K> root) {
+        // Perform regular BST deletion
         if (root == null) {
             size++;
             return root;
@@ -136,28 +138,31 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
             return root;
         }
 
+        // Update height and rebalance tree
         root.setHeight(Math.max(getNodeLeftHeight(root), getNodeRightHeight(root)) + 1);
-        int balance = getBalance(root);
+        BalanceState balanceState = getBalanceState(root);
 
-        if (balance == 2) {
+        if (balanceState == BalanceState.UNBALANCED_LEFT) {
             // Left left case
-            if (getBalance(root.getLeft()) >= 0) {
+            if (getBalanceState(root.getLeft()) == BalanceState.BALANCED ||
+                    getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_LEFT) {
                 return rightRotate(root);
             }
             // Left right case
-            if (getBalance(root.getLeft()) < 0) {
+            if (getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_RIGHT) {
                 root.setLeft(leftRotate(root.getLeft()));
                 return rightRotate(root);
             }
         }
 
         // Right right case
-        if (balance == -2) {
-            if (getBalance(root.getRight()) <= 0) {
+        if (balanceState == BalanceState.UNBALANCED_RIGHT) {
+            if (getBalanceState(root.getLeft()) == BalanceState.BALANCED ||
+                    getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_RIGHT) {
                 return leftRotate(root);
             }
             // Right left case
-            if (getBalance(root.getRight()) > 0) {
+            if (getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_LEFT) {
                 root.setRight(rightRotate(root.getRight()));
                 return leftRotate(root);
             }
@@ -266,19 +271,6 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
     }
 
     /**
-     * Gets the difference in height between the left and the right child of a node.
-     *
-     * @param node The node to get the difference from.
-     * @return The difference in height between the left and the right child of a node.
-     */
-    private static int getBalance(AVLTreeNode node) {
-        if (node == null) {
-            return 0;
-        }
-        return getNodeLeftHeight(node) - getNodeRightHeight(node);
-    }
-
-    /**
      * Performs a right rotate on a node.
      *
      *       b                          a
@@ -346,5 +338,37 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
             return NULL_NODE_HEIGHT;
         }
         return node.getRight().getHeight();
+    }
+
+    /**
+     * Gets the balance state of a node, indicating whether the left or right sub-trees are
+     * unbalanced.
+     *
+     * @param node The node to get the difference from.
+     * @return The {@link BalanceState} of the node.
+     */
+    private static BalanceState getBalanceState(AVLTreeNode node) {
+        if (node == null) {
+            return BalanceState.BALANCED;
+        }
+        int heightDifference = getNodeLeftHeight(node) - getNodeRightHeight(node);
+        switch (heightDifference) {
+            case -2: return BalanceState.UNBALANCED_RIGHT;
+            case -1: return BalanceState.SLIGHTLY_UNBALANCED_RIGHT;
+            case 1: return BalanceState.SLIGHTLY_UNBALANCED_LEFT;
+            case 2: return BalanceState.UNBALANCED_LEFT;
+        }
+        return BalanceState.BALANCED;
+    }
+
+    /**
+     * Represents how balanced a node's left and right children are.
+     */
+    private enum BalanceState {
+        UNBALANCED_RIGHT,
+        SLIGHTLY_UNBALANCED_RIGHT,
+        BALANCED,
+        SLIGHTLY_UNBALANCED_LEFT,
+        UNBALANCED_LEFT
     }
 }
