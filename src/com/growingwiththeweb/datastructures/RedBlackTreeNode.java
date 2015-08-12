@@ -35,6 +35,9 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
                 (rightExists() ? right.toString() : nullNodeString) + " }";
     }
 
+    /**
+     * @return The color code for the node, either red or black.
+     */
     private String getColorCode() {
         if (color == Color.BLACK) {
             return "B";
