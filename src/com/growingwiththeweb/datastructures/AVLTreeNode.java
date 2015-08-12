@@ -4,6 +4,10 @@ package com.growingwiththeweb.datastructures;
  * Generic implementation of a binary search tree node.
  */
 public class AVLTreeNode<K extends Comparable<K>> implements Comparable<AVLTreeNode<K>> {
+    /**
+     * The height of a left or right child node that doesn't exist.
+     */
+    private static final int NULL_NODE_HEIGHT = -1;
 
     /**
      * The left child node.
@@ -110,6 +114,73 @@ public class AVLTreeNode<K extends Comparable<K>> implements Comparable<AVLTreeN
      */
     public void setHeight(int height) {
         this.height = height;
+    }
+
+
+    /**
+     * Performs a right rotate on this node.
+     *
+     *       b                           a
+     *      / \                         / \
+     *     a   e -> b.rotateRight() -> c   b
+     *    / \                             / \
+     *   c   d                           d   e
+     *
+     * @return The root of the sub-tree; the node where this node used to be.
+     */
+    public AVLTreeNode<K> rightRotate() {
+        AVLTreeNode<K> other = getLeft();
+        setLeft(other.getRight());
+        other.setRight(this);
+        setHeight(Math.max(this.getLeftHeight(), this.getRightHeight()) + 1);
+        other.setHeight(Math.max(other.getLeftHeight(), this.getHeight()) + 1);
+        return other;
+    }
+
+    /**
+     * Performs a left rotate on this node.
+     *
+     *     a                              b
+     *    / \                            / \
+     *   c   b   -> a.rotateLeft() ->   a   e
+     *      / \                        / \
+     *     d   e                      c   d
+     *
+     * @return The root of the sub-tree; the node where this node used to be.
+     */
+    public AVLTreeNode<K> leftRotate() {
+        AVLTreeNode<K> other = getRight();
+        setRight(other.getLeft());
+        other.setLeft(this);
+        setHeight(Math.max(this.getLeftHeight(), this.getRightHeight()) + 1);
+        other.setHeight(Math.max(other.getRightHeight(), this.getHeight()) + 1);
+        return other;
+    }
+
+    /**
+     * Convenience function to get the height of the left child of the node, returning
+     * {@link NULL_NODE_HEIGHT} if the node is null.
+     *
+     * @return The height of the left child, or {@link NULL_NODE_HEIGHT} if it doesn't exist.
+     */
+    public int getLeftHeight() {
+        if (!leftExists()) {
+            return NULL_NODE_HEIGHT;
+        }
+        return getLeft().getHeight();
+    }
+
+    /**
+     * Convenience function to get the height of the right child of the node, returning
+     * {@link NULL_NODE_HEIGHT} if the node is null.
+     *
+     * @return The height of the right child, or {@link NULL_NODE_HEIGHT} if it doesn't exist.
+     */
+    public int getRightHeight() {
+        if (!rightExists()) {
+            return NULL_NODE_HEIGHT;
+        }
+        return getRight().getHeight();
     }
 
     /** {@inheritDoc} */
