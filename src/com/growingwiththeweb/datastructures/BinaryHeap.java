@@ -23,7 +23,7 @@ public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
         int i = list.size();
         list.add(item);
         int parent = parent(i);
-        while (parent != i && list.get(i).compareTo(list.get(parent)) < 0) {
+        while (parent != -1 && list.get(i).compareTo(list.get(parent)) < 0) {
             swap(i, parent);
             i = parent;
             parent = parent(i);
@@ -99,15 +99,18 @@ public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
     }
 
     private int parent(int i) {
-        return i / 2;
+        if (i == 0) {
+            return -1;
+        }
+        return (i - 1) / 2;
     }
 
     private int left(int i) {
-        return 2 * i;
+        return 2 * i + 1;
     }
 
     private int right(int i) {
-        return 2 * i + 1;
+        return 2 * i + 2;
     }
 
 }
