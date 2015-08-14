@@ -45,18 +45,32 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         return "R";
     }
 
+    /**
+     * @return Whether the node has a left child.
+     */
     public boolean leftExists() {
         return left != null;
     }
 
+    /**
+     * @return Whether the node has a right child.
+     */
     public boolean rightExists() {
         return right != null;
     }
 
+    /**
+     * @return The node's key.
+     */
     public T getKey() {
         return key;
     }
 
+    /**
+     * Sets the node's key.
+     *
+     * @param key The new key.
+     */
     public void setKey(T key) {
         this.key = key;
     }
