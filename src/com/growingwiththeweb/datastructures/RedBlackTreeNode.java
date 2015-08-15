@@ -25,6 +25,9 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         this.setNilNode(true);
     }
 
+    /**
+     * @return A string that textually describes the node.
+     */
     @Override
     public String toString() {
         if (isNilNode) {
