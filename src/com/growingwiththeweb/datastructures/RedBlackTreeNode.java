@@ -11,6 +11,12 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
     private boolean isNilNode;
     private Color color;
 
+    /**
+     * Creates a new {@link RedBlackTreeNode}.
+     *
+     * @param key The key of the new node.
+     * @param parent The parent of the new node.
+     */
     public RedBlackTreeNode(T key, RedBlackTreeNode parent) {
         this.key = key;
         this.parent = parent;
@@ -18,7 +24,11 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         this.setNilNode(false);
     }
 
-    // Constructor for nil leaf node
+    /**
+     * Creates a new nil (black) {@link RedBlackTreeNode}.
+     *
+     * @param parent The parent of the new node.
+     */
     private RedBlackTreeNode(RedBlackTreeNode parent) {
         this.parent = parent;
         this.color = Color.BLACK;
