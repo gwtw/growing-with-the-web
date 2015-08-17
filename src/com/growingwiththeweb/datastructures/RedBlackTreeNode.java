@@ -88,6 +88,9 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         this.key = key;
     }
 
+    /**
+     * @return The left child node.
+     */
     public RedBlackTreeNode getLeft() {
         // Create nil leaf nodes lazily
         if (left == null) {
@@ -96,10 +99,18 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         return left;
     }
 
+    /**
+     * Sets the left child node.
+     *
+     * @param left The new left child node.
+     */
     public void setLeft(RedBlackTreeNode left) {
         this.left = left;
     }
 
+    /**
+     * @return The right child node.
+     */
     public RedBlackTreeNode getRight() {
         // Create nil leaf nodes lazily
         if (right == null) {
@@ -108,14 +119,25 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         return right;
     }
 
+    /**
+     * Sets the right child node.
+     *
+     * @param right The new right child node.
+     */
     public void setRight(RedBlackTreeNode right) {
         this.right = right;
     }
 
+    /**
+     * @return The parent of this node.
+     */
     public RedBlackTreeNode getParent() {
         return parent;
     }
 
+    /**
+     * @return The grandparent of the node if it exists, otherwise null.
+     */
     public RedBlackTreeNode getGrandparent() {
         if (parent != null && parent.getParent() != null) {
             return parent.getParent();
@@ -123,6 +145,11 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         return null;
     }
 
+    /**
+     * Sets the parent of this node.
+     *
+     * @param right The new parent node.
+     */
     public void setParent(RedBlackTreeNode parent) {
         this.parent = parent;
     }
