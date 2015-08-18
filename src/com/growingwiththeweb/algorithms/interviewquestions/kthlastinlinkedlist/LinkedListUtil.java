@@ -18,7 +18,6 @@ public class LinkedListUtil {
 
         LinkedList current = head;
         LinkedList nBehindCurrent = head;
-        int countBehindCurrent = 0;
 
         for (int i = 0; i < k - 1; i++) {
             current = current.next;
