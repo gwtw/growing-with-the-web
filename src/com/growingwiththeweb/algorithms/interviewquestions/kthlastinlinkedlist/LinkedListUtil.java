@@ -4,15 +4,15 @@ import com.growingwiththeweb.algorithms.LinkedList;
 
 public class LinkedListUtil {
     /**
-     * Gets the nth last element of a linked list.
+     * Gets the kth last element of a linked list.
      *
      * @param head The head of the linked list.
-     * @param n The number of elements to count backward.
-     * @return The nth last element of the linked list, if it is not large
+     * @param k The number of elements to count backward.
+     * @return The kth last element of the linked list, if it is not large
      * enough, return 0
      */
-    public static LinkedList getNthLastElement(LinkedList head, int n) {
-        if (head == null || n < 1) {
+    public static LinkedList getKthLastElement(LinkedList head, int k) {
+        if (head == null || k < 1) {
             return null;
         }
 
@@ -20,7 +20,7 @@ public class LinkedListUtil {
         LinkedList nBehindCurrent = head;
         int countBehindCurrent = 0;
 
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < k - 1; i++) {
             current = current.next;
             if (current == null) {
                 return null;
