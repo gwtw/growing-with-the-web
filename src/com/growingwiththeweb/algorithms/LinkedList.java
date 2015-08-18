@@ -19,7 +19,7 @@ public class LinkedList {
         LinkedList prev = this;
         for (int i = 1; i < data.length; i++) {
             prev.next = new LinkedList(data[i]);
-            if (type == Type.Doubly)
+            if (type == Type.DOUBLY)
                 prev.next.prev = prev;
             prev = prev.next;
         }
@@ -32,11 +32,11 @@ public class LinkedList {
      */
     public void assertEquals(int[] data, Type type) {
         LinkedList elem = this;
-        if (type == Type.Doubly)
+        if (type == Type.DOUBLY)
             assert elem.prev == null;
         for (int i = 0; i < data.length; i++) {
             assert elem.data == data[i];
-            if (type == Type.Doubly && elem.next != null)
+            if (type == Type.DOUBLY && elem.next != null)
                 assert elem.next.prev == elem;
             elem = elem.next;
         }
@@ -44,7 +44,7 @@ public class LinkedList {
     }
 
     public enum Type {
-        Singly,
-        Doubly
+        SINGLY,
+        DOUBLY
     }
 }
