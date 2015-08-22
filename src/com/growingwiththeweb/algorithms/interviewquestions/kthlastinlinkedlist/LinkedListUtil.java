@@ -9,7 +9,7 @@ public class LinkedListUtil {
      * @param head The head of the linked list.
      * @param k The number of elements to count backward.
      * @return The kth last element of the linked list, if it is not large
-     * enough, return 0
+     * enough, return 0.
      */
     public static LinkedList getKthLastElement(LinkedList head, int k) {
         if (head == null || k < 1) {
