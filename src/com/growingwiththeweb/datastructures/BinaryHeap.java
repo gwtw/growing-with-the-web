@@ -4,6 +4,9 @@ import java.lang.Comparable;
 import java.util.ArrayList;
 
 public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
+    /**
+     * The heap's data.
+     */
     private ArrayList<T> list;
 
     public BinaryHeap() {
