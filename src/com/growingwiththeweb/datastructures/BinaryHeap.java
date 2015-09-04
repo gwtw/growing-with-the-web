@@ -9,6 +9,9 @@ public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
      */
     private ArrayList<T> list;
 
+    /**
+     * Creates a new {@link BinaryHeap}.
+     */
     public BinaryHeap() {
         this(0);
     }
