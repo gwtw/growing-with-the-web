@@ -16,10 +16,21 @@ public class BinaryHeap<T extends Comparable<T>> implements HeapInterface<T> {
         this(0);
     }
 
+    /**
+     * Creates a new {@link BinaryHeap}.
+     *
+     * @param size The expected maximum size of the heap. this value reduces the number of
+     * reallocations to the backing {@link ArrayList}.
+     */
     public BinaryHeap(int size) {
         list = new ArrayList<T>(size);
     }
 
+    /**
+     * Creates a new {@link BinaryHeap}.
+     *
+     * @param items An {@link ArrayList} to use as the backing array.
+     */
     public BinaryHeap(ArrayList<T> items) {
         list = items;
         buildHeap();
