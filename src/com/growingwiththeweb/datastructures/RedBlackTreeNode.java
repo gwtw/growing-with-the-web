@@ -154,30 +154,49 @@ public class RedBlackTreeNode<T extends Comparable<T>> implements Comparable<Red
         this.parent = parent;
     }
 
+    /**
+     * @return The color of this node.
+     */
     public Color getColor() {
         return color;
     }
 
+    /**
+     * Sets the color of this node.
+     *
+     * @param color The new color node.
+     */
     public void setColor(Color color) {
         this.color = color;
     }
 
+    /**
+     * @return Whether this is a nil node.
+     */
     public boolean isNilNode() {
         return isNilNode;
     }
 
+    /**
+     * Sets weather this is a nil node.
+     *
+     * @param isNilNode Whether it is a nil node.
+     */
     public final void setNilNode(boolean isNilNode) {
         this.isNilNode = isNilNode;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int compareTo(RedBlackTreeNode<T> o) {
         return this.key.compareTo(o.getKey());
     }
 
+    /**
+     * Represents the color of a Red Black Tree node.
+     */
     public enum Color {
         BLACK,
         RED
     }
-
 }
