@@ -4,7 +4,7 @@ import java.lang.IllegalArgumentException;
 
 public class Solution {
     /**
-     * Determines whether a binary tree is balanced..
+     * Determines whether a binary tree is balanced.
      *
      * @param {BinaryTreeNode} root The root of the tree.
      * @returns Whether the tree is balanced.
