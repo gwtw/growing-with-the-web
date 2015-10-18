@@ -25,7 +25,7 @@ public class Program {
 
     public static int fib(int n) {
         if (n < 0)
-            throw new IllegalArgumentException("n much be >= 0");
+            throw new IllegalArgumentException("n must be >= 0");
         if (n == 0)
             return 0;
         if (n == 1)
@@ -40,7 +40,7 @@ public class Program {
 
     private static int fibV2(int n, HashMap<Integer, Integer> hash) {
         if (n < 0)
-            throw new IllegalArgumentException("n much be >= 0");
+            throw new IllegalArgumentException("n must be >= 0");
         if (n == 0)
             return 0;
         if (n == 1)
@@ -55,7 +55,7 @@ public class Program {
 
     public static int fibIter(int n) {
         if (n < 0)
-            throw new IllegalArgumentException("n much be >= 0");
+            throw new IllegalArgumentException("n must be >= 0");
         if (n == 0)
             return 0;
         if (n == 1)
