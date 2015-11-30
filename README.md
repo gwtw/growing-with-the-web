@@ -1,4 +1,4 @@
-[![Growing with the Web](http://www.growingwiththeweb.com/images/site/logo.png)][1]
+# growing-with-the-web
 
 [![Build Status](http://img.shields.io/travis/Tyriar/growing-with-the-web.svg?style=flat)](http://travis-ci.org/Tyriar/growing-with-the-web)
 
@@ -6,7 +6,7 @@ A collection of algorithm, data structure and design pattern samples of posts fr
 
 Note that this code has not been thoroughly tested and as a result should not be used in production code.
 
-*This repository is in the process of being split into separate repositories in https://github.com/GrowingWithTheWeb*
+*This repository is in the process of being split into separate repositories*
 
 
 
