@@ -51,6 +51,17 @@ public class Solution {
         if (bLength == 1 && aLength > 1) {
             return findMedianOfArrayAndValue(A, aStart, aEnd, B[bStart]);
         }
+        
+        if (aLength == 2 && bLength >= 2 && bLength % 2 == 0) {
+            if (areValuesInMiddleOfEvenArray(B, bStart, bEnd, A[aStart], A[aEnd])) {
+                return (A[aStart] + A[aEnd]) / 2d;
+            }
+        }
+        if (bLength == 2 && aLength >= 2 && aLength % 2 == 0) {
+            if (areValuesInMiddleOfEvenArray(A, aStart, aEnd, B[bStart], B[bEnd])) {
+                return (B[bStart] + B[bEnd]) / 2d;
+            }
+        }
 
         double medianA = medianOfArray(A, aStart, aEnd);
         double medianB = medianOfArray(B, bStart, bEnd);
@@ -68,6 +79,22 @@ public class Solution {
         }
         return findMedianInternal(A, aStart, aEnd - maxDiscardable,
                                   B, bStart + maxDiscardable, bEnd);
+    }
+
+    /**
+     * Gets whether two values belong in sorted order in the middle of an array.
+     * 
+     * @param array The sorted array.
+     * @param start The start of the array to use.
+     * @param end The end of the array to use.
+     * @param small The smaller number.
+     * @param large The larger number.
+     * @return Whether the two values belong in the middle.
+     */
+    private static boolean areValuesInMiddleOfEvenArray(
+            int[] array, int start, int end, int small, int large) {
+        int midIndex = (end + start) / 2;
+        return small > array[midIndex] && large < array[midIndex + 1];
     }
 
     /**

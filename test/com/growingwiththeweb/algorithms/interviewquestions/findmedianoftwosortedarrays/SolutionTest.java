@@ -131,4 +131,10 @@ public class SolutionTest {
         assertEquals(5.5d, Solution.findMedian(new int[] {1, 4, 7}, new int[] {8}), 0d);
         assertEquals(5.5d, Solution.findMedian(new int[] {1, 4, 7}, new int[] {9}), 0d);
     }
+    
+    @Test
+    public void testTwoValuesAndEvenArrayCase() {
+        assertEquals(5d, Solution.findMedian(new int[] {-50, -47, -36, -35, 0, 13, 14, 16}, new int[] {-31, 1, 9, 23, 30, 39}), 0d);
+        assertEquals(5d, Solution.findMedian(new int[] {-47, -36, -35, 0, 13, 14}, new int[] {-31, 1, 9, 23, 30, 39}), 0d);
+    }
 }
