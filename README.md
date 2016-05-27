@@ -1,6 +1,6 @@
 # growing-with-the-web
 
-[![Build Status](http://img.shields.io/travis/Tyriar/growing-with-the-web.svg?style=flat)](http://travis-ci.org/Tyriar/growing-with-the-web)
+[![Build Status](http://img.shields.io/travis/GrowingWithTheWeb/growing-with-the-web.svg?style=flat)](http://travis-ci.org/GrowingWithTheWeb/growing-with-the-web)
 
 A collection of algorithm, data structure and design pattern samples of posts from my [blog][1].
 
