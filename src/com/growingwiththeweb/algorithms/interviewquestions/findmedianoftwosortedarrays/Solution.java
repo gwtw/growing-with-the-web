@@ -11,6 +11,12 @@ public class Solution {
      * @return The median of A and B.
      */
     public static double findMedian(int[] A, int[] B) {
+        // Both arrays must have length >= 1.
+        if (A.length == 0 && B.length == 0) {
+            throw new IllegalArgumentException(
+                    "Both arrays cannot be zero-length");
+        }
+
         return findMedianInternal(A, 0, A.length - 1, B, 0, B.length - 1);
     }
 
@@ -27,12 +33,6 @@ public class Solution {
      */
     private static double findMedianInternal(
             int[] A, int aStart, int aEnd, int[] B, int bStart, int bEnd) {
-        // Check actual lengths here instead of start/end since the arrays
-        // themselves don't change in recursive calls
-        if (A.length == 0 && B.length == 0) {
-            throw new IllegalArgumentException(
-                    "Both arrays cannot be zero-length");
-        }
         if (A.length == 0) {
             return medianOfArray(B, bStart, bEnd);
         }
