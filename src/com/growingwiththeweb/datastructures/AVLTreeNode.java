@@ -1,7 +1,7 @@
 package com.growingwiththeweb.datastructures;
 
 /**
- * Generic implementation of a binary search tree node.
+ * Generic implementation of an AVL tree node.
  */
 public class AVLTreeNode<K extends Comparable<K>> implements Comparable<AVLTreeNode<K>> {
     /**
@@ -30,7 +30,7 @@ public class AVLTreeNode<K extends Comparable<K>> implements Comparable<AVLTreeN
     private int height;
 
     /**
-     * Creates a new {@link BinarySearchTreeNode}.
+     * Creates a new {@link AVLTreeNode}.
      *
      * @param key The key of the new node.
      */
@@ -128,7 +128,7 @@ public class AVLTreeNode<K extends Comparable<K>> implements Comparable<AVLTreeN
      *
      * @return The root of the sub-tree; the node where this node used to be.
      */
-    public AVLTreeNode<K> rightRotate() {
+    public AVLTreeNode<K> rotateRight() {
         AVLTreeNode<K> other = getLeft();
         setLeft(other.getRight());
         other.setRight(this);
@@ -148,7 +148,7 @@ public class AVLTreeNode<K extends Comparable<K>> implements Comparable<AVLTreeN
      *
      * @return The root of the sub-tree; the node where this node used to be.
      */
-    public AVLTreeNode<K> leftRotate() {
+    public AVLTreeNode<K> rotateLeft() {
         AVLTreeNode<K> other = getRight();
         setRight(other.getLeft());
         other.setLeft(this);

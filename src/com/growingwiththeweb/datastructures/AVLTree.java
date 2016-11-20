@@ -55,22 +55,22 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
         if (balanceState == BalanceState.UNBALANCED_LEFT) {
             if (key.compareTo(root.getLeft().getKey()) < 0) {
                 // Left left case
-                root = root.rightRotate();
+                root = root.rotateRight();
             } else {
                 // Left right case
-                root.setLeft(root.getLeft().leftRotate());
-                return root.rightRotate();
+                root.setLeft(root.getLeft().rotateLeft());
+                return root.rotateRight();
             }
         }
 
         if (balanceState == BalanceState.UNBALANCED_RIGHT) {
             if (key.compareTo(root.getRight().getKey()) > 0) {
                 // Right right case
-                root = root.leftRotate();
+                root = root.rotateLeft();
             } else {
                 // Right left case
-                root.setRight(root.getRight().rightRotate());
-                return root.leftRotate();
+                root.setRight(root.getRight().rotateRight());
+                return root.rotateLeft();
             }
         }
 
@@ -131,12 +131,12 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
             // Left left case
             if (getBalanceState(root.getLeft()) == BalanceState.BALANCED ||
                     getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_LEFT) {
-                return root.rightRotate();
+                return root.rotateRight();
             }
             // Left right case
             if (getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_RIGHT) {
-                root.setLeft(root.getLeft().leftRotate());
-                return root.rightRotate();
+                root.setLeft(root.getLeft().rotateLeft());
+                return root.rotateRight();
             }
         }
 
@@ -144,12 +144,12 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
         if (balanceState == BalanceState.UNBALANCED_RIGHT) {
             if (getBalanceState(root.getLeft()) == BalanceState.BALANCED ||
                     getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_RIGHT) {
-                return root.leftRotate();
+                return root.rotateLeft();
             }
             // Right left case
             if (getBalanceState(root.getLeft()) == BalanceState.SLIGHTLY_UNBALANCED_LEFT) {
-                root.setRight(root.getRight().rightRotate());
-                return root.leftRotate();
+                root.setRight(root.getRight().rotateRight());
+                return root.rotateLeft();
             }
         }
 
@@ -184,7 +184,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
             return contains(key, root.getLeft());
         }
 
-        if (key.compareTo(root.getKey())> 0 ) {
+        if (key.compareTo(root.getKey()) > 0) {
             if (!root.rightExists()) {
                 return false;
             }
@@ -219,7 +219,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
      * @return The maximum key in the tree.
      */
     public K findMaximum() {
-        return minValueNode(root).getKey();
+        return maxValueNode(root).getKey();
     }
 
     /**
