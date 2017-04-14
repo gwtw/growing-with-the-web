@@ -5,10 +5,10 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-public class MaxAwareStackTest {
+public class MaxAwareStackOptimisedTest {
     @Test
     public void testEmptyStackValue() {
-        MaxAwareStack<Integer> stack = new MaxAwareStack<Integer>();
+        MaxAwareStackOptimised<Integer> stack = new MaxAwareStackOptimised<Integer>();
         assertNull(stack.pop());
         stack.push(1);
         stack.pop();
@@ -17,7 +17,7 @@ public class MaxAwareStackTest {
 
     @Test
     public void testPushPop() {
-        MaxAwareStack<Integer> stack = new MaxAwareStack<Integer>();
+        MaxAwareStackOptimised<Integer> stack = new MaxAwareStackOptimised<Integer>();
         stack.push(1);
         assertEquals(1, (int)stack.pop());
         stack.push(1);
@@ -34,7 +34,7 @@ public class MaxAwareStackTest {
 
     @Test
     public void testPushPopShuffled() {
-        MaxAwareStack<Integer> stack = new MaxAwareStack<Integer>();
+        MaxAwareStackOptimised<Integer> stack = new MaxAwareStackOptimised<Integer>();
         stack.push(1);
         stack.push(2);
         assertEquals(2, (int)stack.pop());
@@ -49,7 +49,7 @@ public class MaxAwareStackTest {
 
     @Test
     public void testMaxEmpty() {
-        MaxAwareStack<Integer> stack = new MaxAwareStack<Integer>();
+        MaxAwareStackOptimised<Integer> stack = new MaxAwareStackOptimised<Integer>();
         assertNull(stack.getMax());
         stack.push(1);
         stack.pop();
@@ -58,13 +58,31 @@ public class MaxAwareStackTest {
 
     @Test
     public void testMaxPushPop() {
-        MaxAwareStack<Integer> stack = new MaxAwareStack<Integer>();
+        MaxAwareStackOptimised<Integer> stack = new MaxAwareStackOptimised<Integer>();
         stack.push(1);
         stack.push(3);
         stack.push(2);
         assertEquals(3, (int)stack.getMax());
         stack.pop();
         assertEquals(3, (int)stack.getMax());
+        stack.pop();
+        assertEquals(1, (int)stack.getMax());
+        stack.pop();
+        assertNull(stack.getMax());
+    }
+
+    @Test
+    public void testMaxDuplicates() {
+        MaxAwareStackOptimised<Integer> stack = new MaxAwareStackOptimised<Integer>();
+        stack.push(1);
+        stack.push(1);
+        stack.push(2);
+        stack.push(2);
+        assertEquals(2, (int)stack.getMax());
+        stack.pop();
+        assertEquals(2, (int)stack.getMax());
+        stack.pop();
+        assertEquals(1, (int)stack.getMax());
         stack.pop();
         assertEquals(1, (int)stack.getMax());
         stack.pop();
