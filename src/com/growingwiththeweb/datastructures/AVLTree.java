@@ -7,7 +7,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
     /**
      * The root of the tree.
      */
-    private AVLTreeNode root;
+    private AVLTreeNode<K> root;
 
     /**
      * The size of the tree.
@@ -32,10 +32,10 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
      * @param root The root of the tree to insert in.
      * @return The new tree root.
      */
-    private AVLTreeNode insert(K key, AVLTreeNode<K> root) {
+    private AVLTreeNode<K> insert(K key, AVLTreeNode<K> root) {
         // Perform regular BST insertion
         if (root == null) {
-            return new AVLTreeNode(key);
+            return new AVLTreeNode<K>(key);
         }
 
         if (key.compareTo(root.getKey()) < 0) {
@@ -90,7 +90,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
      * @param root The root of the tree to delete from.
      * @return The new tree root.
      */
-    private AVLTreeNode delete(K key, AVLTreeNode<K> root) {
+    private AVLTreeNode<K> delete(K key, AVLTreeNode<K> root) {
         // Perform regular BST deletion
         if (root == null) {
             size++;
@@ -253,7 +253,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
      * @param node The node to get the difference from.
      * @return The {@link BalanceState} of the node.
      */
-    private static BalanceState getBalanceState(AVLTreeNode node) {
+    private BalanceState getBalanceState(AVLTreeNode<K> node) {
         if (node == null) {
             return BalanceState.BALANCED;
         }
