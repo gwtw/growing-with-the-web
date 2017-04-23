@@ -1,5 +1,5 @@
 # Binary search tree
 
-[Link to article](http://www.growingwiththeweb.com/2012/10/data-structures-binary-search-tree.html)
+[Link to article](http://www.growingwiththeweb.com/data-structures/binary-search-tree/overview/)
 
-![Binary search tree image](http://www.growingwiththeweb.com/images/2012/10/24/representation-children.png)
+![Binary search tree image](http://www.growingwiththeweb.com/images/data-structures/binary-tree/tree-representation.png)
