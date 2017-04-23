@@ -1,5 +1,5 @@
 # Red-black tree
 
-[Link to article](http://www.growingwiththeweb.com/2012/12/data-structure-red-black-tree.html)
+[Link to article](http://www.growingwiththeweb.com/data-structures/red-black-tree/overview/)
 
-![Red-black tree image](http://www.growingwiththeweb.com/images/2012/12/09/rbt.png)
+![Red-black tree image](http://www.growingwiththeweb.com/images/data-structures/red-black-tree/rbt.svg)
