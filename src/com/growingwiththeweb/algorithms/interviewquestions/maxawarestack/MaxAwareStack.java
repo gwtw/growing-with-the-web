@@ -4,11 +4,11 @@ import java.lang.Comparable;
 import java.util.Stack;
 
 public class MaxAwareStack<T extends Comparable<T>> {
-    private Stack<MaxAwareEntry> stack = new Stack<MaxAwareEntry>();
+    private Stack<MaxAwareEntry> stack = new Stack<>();
 
     public void push(T obj) {
         MaxAwareEntry entry = new MaxAwareEntry(obj);
-        if (stack.size() == 0) {
+        if (stack.isEmpty()) {
             entry.max = obj;
         } else {
             T currentMax = stack.peek().max;
@@ -18,14 +18,14 @@ public class MaxAwareStack<T extends Comparable<T>> {
     }
 
     public T pop() {
-        if (stack.size() == 0) {
+        if (stack.isEmpty()) {
             return null;
         }
         return stack.pop().value;
     }
 
     public T getMax() {
-        if (stack.size() == 0) {
+        if (stack.isEmpty()) {
             return null;
         }
         return stack.peek().max;
